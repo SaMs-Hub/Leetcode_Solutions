@@ -1,4 +1,4 @@
-# Competitive_Programming
+# Problem Solving
 
 Contains a set of problems solved in various languages.
 Contains solutions from Sites such as Leetcode, GeekforGeeks etc
