@@ -1,5 +1,7 @@
 class Solution {
 public:
+    
+    //
     vector<int> threeEqualParts(vector<int>& a) {
     size_t n = a.size();
     int sum = std::accumulate(a.begin(), a.end(), 0);
