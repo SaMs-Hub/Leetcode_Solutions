@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+# non recursive
 int binarySearch(int arr[], int x, int n){
     int s = 0;
     int e = n - 1;
