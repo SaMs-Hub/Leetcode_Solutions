@@ -8,7 +8,7 @@ int power(int a, int b){
     }
 
 
-    // rec case
+    // recursive case
     int smallOutput = power(a, b - 1);
     return a * smallOutput;
 
