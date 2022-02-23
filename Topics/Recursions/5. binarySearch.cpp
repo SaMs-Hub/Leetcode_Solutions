@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+// not working
 int binarySearch(int arr[], int n, int key, int si, int ei){
     if (si > ei){
         return -1;
