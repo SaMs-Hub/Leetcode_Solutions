@@ -2,7 +2,7 @@
 using namespace std;
 
 
-// not working
+
 int binarySearch(int arr[], int n, int key, int si, int ei){
     if (si > ei){
         return -1;
@@ -23,6 +23,6 @@ int main(){
     int n = sizeof(arr)/sizeof(int);
     int key = 4;
 
-    cout << binarySearch(arr, n, key, 0, n);
+    cout << binarySearch(arr, n, key, 0, n - 1);
    
 }
