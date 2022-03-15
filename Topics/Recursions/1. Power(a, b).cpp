@@ -2,7 +2,7 @@
 using namespace std;
 
 int power(int a, int b){
-    // base case
+    // base case 
     if (b == 0){
         return 1;
     }
