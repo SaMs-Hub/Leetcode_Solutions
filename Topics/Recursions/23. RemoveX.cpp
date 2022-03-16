@@ -12,7 +12,7 @@ void removeX(char str[]){
           removeX(str + 1);
      }else{
           int i = 1;
-          for (; str[0] != '\0'; i++){
+          for (; str[i] != '\0'; i++){
                str[i - 1] = str[i];
           }
           str[i - 1] = str[i];
