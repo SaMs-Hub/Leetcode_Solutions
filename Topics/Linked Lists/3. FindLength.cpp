@@ -1,3 +1,4 @@
+// Approach 1 - Naive
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -86,3 +87,21 @@ int main()
 
 
 }
+
+
+------
+// Approach 2 - Recursive
+int Length(Node *head){
+// base case - if head is NULL return 0
+if (head == NULL){
+    return 0;
+}
+
+
+// smallerCase - call via headNext, and store
+int smallerCount = Length(head->next);
+
+// returnCalc - return 1 + headNext
+return 1 + smallerCount;
+}
+
