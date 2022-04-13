@@ -35,16 +35,6 @@ Node *buildTree()
 }
 
 
-	if (root == NULL){
-		return;
-	}
-
-	cout << root->data << " ";
-
-	printNode(root->left);
-	printNode(root->right);
-}
-
 int countNodes(Node* root){
 	// base case
 	if (root == NULL){
