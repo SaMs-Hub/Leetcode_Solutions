@@ -33,26 +33,40 @@ Node* buildTree(){
 }
 
 
-void bfs(Node* root){
+void bfs(Node *root){
 	queue<Node*> q;
 	q.push(root);
+	q.push(NULL);
 
 	while (!q.empty()){
 		Node* f = q.front();
-		cout << f->data << ' ';
-		q.pop();
 
-		if (f->left){
-			q.push(f->left);
-		}
+		if (f == NULL){
+			cout << endl;
+			q.pop();
 
-		if (f->right){
-			q.push(f->right);
+			if (!q.empty()){
+				q.push(NULL);
+			}
+
+
+		}else{
+			cout << f->data << ',';
+			q.pop();
+
+			if (f->left){
+				q.push(f->left);
+			}
+			if (f->right){
+				q.push(f->right);
+			}
 		}
 	}
 
+
 	return;
 }
+
 
 
 int main()
