@@ -1,3 +1,4 @@
+// Approach 1 - BruteForce
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -92,4 +93,50 @@ int main()
     
 
     return 0;
+}
+
+
+// Approach 2.1 Recusion TC - O(n2)
+Node* reverseLL(Node* head){
+    // base case - if head is NULL or headNext is NULL return head;
+    // rec Case - store sHead in head->next;
+    // store sHead in temp, while tempNext != NULL store tempNext as temp
+    // headNext as NULL, tempNExt as head return shead
+
+    if (head == NULL or head->next == NULL){
+        return head;
+    }
+
+    Node* sHead = reverseLL(head->next);
+    Node* temp = sHead;
+    while (temp->next != NULL){
+        temp = temp->next;
+    }
+
+    head->next = NULL;
+    temp->next = head;
+    return sHead;
+
+
+}
+
+// Approach 2.2 Recursion TC - 
+Node* reverseLL(Node* head){
+    // base case - if head is NULL or headNext is NULL return head;
+    // rec Case - store sHead in head->next;
+    // store head in headNExt -> next and head->next = NULL
+   
+
+    if (head == NULL or head->next == NULL){
+        return head;
+    }
+
+    Node* sHead = reverseLL(head->next);
+ 
+    head->next->next = head;
+    head->next = NULL;
+    
+    return sHead;
+
+
 }
