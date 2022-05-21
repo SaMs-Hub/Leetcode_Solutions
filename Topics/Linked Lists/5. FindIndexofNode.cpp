@@ -73,19 +73,17 @@ int searchNode(Node* head, int data){
 }
 
 //Recursive
-bool searchNode(Node* head, int data){
-    // if head is null, return false
-    // else if headData is data, return true, else call on headNExt
-
+int searchNode(Node* head, int data, int index = 0){
+    
     if (head == NULL){
-        return false;
+        return -1;
     }
 
-    if (head->data == data){
-       return true;
+    if (head->data ==data){
+        return 0;
     }
 
-    return searchNode(head->next, data);
+    return searchNode(head->next, data, index + 1);
 }
 
 int main()
