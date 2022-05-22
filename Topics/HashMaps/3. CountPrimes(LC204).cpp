@@ -52,4 +52,29 @@ int main()
 }
 
 
-/// App 2 - Sieve of 
+/// App 2 - Sieve of Eratosthenes
+
+int countPrimes(int n) {
+    // make all numbers true
+        vector<bool> primes(n + 1, true);
+
+        primes[0] = primes[1] = false;
+        for (int i = 2; i * i <= n; i++){
+            if (primes[i]){
+                // if multiple make false
+                for (int j = i * i; j <= n; j += i){
+                    primes[j] = false;
+                }   
+            }
+        }
+
+        int count = 0;
+        for (int i = 2; i < n; i++){
+            if (primes[i]){
+                count += 1;
+            }
+        }
+
+        return count;
+        
+    }
