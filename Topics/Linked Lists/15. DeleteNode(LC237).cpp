@@ -2,9 +2,9 @@ void deleteNode(ListNode* node) {
 	// store nodeNext in newNode
     ListNode* newNode = node->next;
 	
-	// get prevNodedata in nextNodeData
+	  // store newNodeData in NdoeData
 	node->data = newNode->data;
 	
-	// point prevNode to nextNode
+	 // store newNdoeNext in ndoeNext;
 	node->next = newNode->next;
 }
