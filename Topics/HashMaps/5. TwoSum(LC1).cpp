@@ -55,3 +55,18 @@ vector<int> twoSum(vector<int> &arr, int target)
   
 
 }
+
+
+// App 3 - Hashing
+pair<int,int> twoSum(vector<int> &arr, int target) {
+	unordered_map<int, int> temp;
+   for (int i = arr.size() - 1; i >= 0; i--){
+       auto it = temp.find(target - arr[i]);
+       if (it != temp.end()){
+           return make_pair(it->second, i);
+       }
+
+       temp[arr[i]] = i;
+   }
+    
+}
