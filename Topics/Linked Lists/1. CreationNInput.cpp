@@ -14,7 +14,7 @@ public:
     }
 };
 
-// taking input
+// taking input 
 Node *takeInput()
 {
     // have a condition such that users inputs are not counted,
