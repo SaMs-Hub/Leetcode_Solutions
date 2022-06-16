@@ -25,3 +25,21 @@ public:
         
     }
 };
+
+
+// Approach 2 - Using Sort
+string lcp(vector<string> str){
+    sort(str.begin(), str.end());
+    int n = str.size() - 1;
+
+    string lcp;
+    for (int i = 0; i < min(str[0].size(), str[n].size()); i++){
+        if (str[0][i] == str[n][i]){
+            lcp += str[0][i];
+        }else{
+            break;
+        }
+    }
+
+    return lcp;
+}
