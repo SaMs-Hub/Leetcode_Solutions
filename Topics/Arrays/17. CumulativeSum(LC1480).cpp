@@ -15,7 +15,7 @@ public:
 };
 
 
-// Approach 2 - Using same vetor
+// Approach 2 - Using same vector
 vector<int> runningSum(vector<int> &nums){
     
     
