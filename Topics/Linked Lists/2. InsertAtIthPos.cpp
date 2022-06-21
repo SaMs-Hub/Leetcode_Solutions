@@ -1,3 +1,4 @@
+// Appraoch 1 - Naive
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -105,3 +106,31 @@ int main()
 
 
 }
+
+
+// Approach 2
+Node* insertAtKth(Node* head, int k, int data){
+    Node* newNode = new Node(data);
+    int index = 0;
+
+    if (k == 1){
+        newNode->next = head;
+        head = newNode;
+        return head;
+    }
+
+    while (head != NULL){
+        index += 1;
+        if (index == k - 1){
+            break;
+        }
+
+        head = head->next;
+    }
+
+    newNode->next = head->next;
+    head->next = newNode;
+    return head;
+
+}
+
