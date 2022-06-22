@@ -1,3 +1,5 @@
+// App 1 - Recursive
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -101,4 +103,43 @@ int main()
      
 
     return 0;
+}
+
+
+// App 2 - Naive
+Node* mergeSortedLists(Node* h1, Node* h2){
+   
+    if (h1 == NULL){
+        return h2;
+    }
+
+    if (h2 == NULL){
+        return h1;
+    }
+
+    Node* merged;
+    if (h1->data > h2->data){
+        merged = h1;
+        h1 = h2;
+        h2 = merged;
+    }
+
+    Node* head = h1;
+    Node* prev = h1;
+
+    while (h1 != NULL && h2 != NULL){
+        if (h1->data > h2->data){
+            prev->next = h2;
+            merged = h1;
+            h1 = h2;
+            h2 = merged;
+        }
+
+        prev = h1;
+        h1 = h1->next;
+
+    }
+
+    prev->next = h2;
+    return head;
 }
