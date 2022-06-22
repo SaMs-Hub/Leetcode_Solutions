@@ -44,3 +44,33 @@ bool isPalindrome(ListNode* head){
 }
 
 
+// App 2- Naive Using Array
+bool checkPal(vector<int> arr, int start, int end){
+        if (start >= end){
+            return true;
+        }
+        
+        if (arr[start] == arr[end]){
+            return checkPal(arr, start + 1, end - 1);
+        }else{
+            return false;
+        }
+    }
+    
+    bool isPalindrome(Node* head) {
+        vector<int> arr;
+        Node* currentNode = head;
+        while (currentNode != NULL){
+            arr.push_back(currentNode->data);
+            currentNode = currentNode->next;
+        }
+        
+        
+        bool val = checkPal(arr, 0, arr.size() - 1);
+        if (val){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
