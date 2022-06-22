@@ -1,4 +1,6 @@
 
+// Approach 1 
+
 int getMiddleElementOfLinkedList (ListNode* head) {
 	if (head == NULL){
         return -1;
@@ -34,5 +36,33 @@ int getMiddleElementOfLinkedList (ListNode* head) {
 
     return currentNode->data;
     
+
+}
+
+
+// Approach 2 - Two Pointers
+int getMidElement(Node* head){
+    if (head == NULL){
+        return -1;
+    }
+
+    if (head->next == NULL){
+        return head->data;
+    }
+
+    Node* slow = head;
+    Node* fast = head;
+
+    while (true){
+        if (fast->next == NULL or fast->next->next == NULL){
+            break;
+        }
+
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+
+    return slow->data;
+
 
 }
