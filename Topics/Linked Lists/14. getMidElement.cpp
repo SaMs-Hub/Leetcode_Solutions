@@ -1,5 +1,12 @@
 
 int getMiddleElementOfLinkedList (ListNode* head) {
+	if (head == NULL){
+        return -1;
+    }
+
+    if (head->next == NULL){
+        return head->data;
+    }
     
 
 	// count the size of list
