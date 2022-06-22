@@ -1,5 +1,5 @@
 
-Node *removeOccurence(Node *head, int key)
+Node *removeOccurence(Node* &head, int key)
 {
     // base if headData is key point head to headNext
     while (head != NULL && head->data == key)
