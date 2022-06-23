@@ -1,4 +1,24 @@
-// App 1 - Optimal
+// App 1 - Naive
+
+Node *getIntersection(Node *h1, Node *h2)
+{
+    Node* f1 = h1;
+    while (f1 != NULL){
+        Node* f2 = h2;
+        while (f2 != NULL){
+            if (f1->data == f2->data){
+                return f1;
+            }
+            f2 = f2->next;
+        }
+        f1 = f1->next;
+    }
+    return NULL;
+    
+    
+}
+
+// App 2 - Optimal
 #include <bits/stdc++.h>
 using namespace std;
 
