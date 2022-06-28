@@ -14,6 +14,7 @@ public:
 };
 */
 
+// Approach 1 - Naive
 vector<int> getPostorderTraversal(Node* root) {
     // add your logic here
 	vector<int> v;
@@ -37,4 +38,24 @@ vector<int> getPostorderTraversal(Node* root) {
 	
 	return v;
 
+}
+
+
+// Approach 2 - Recursive
+
+void postOrderPush(Node* root, vector<int> &arr){
+    if (root == NULL){
+        return;
+    }
+
+    
+    postOrderPush(root->left, arr);
+    postOrderPush(root->right, arr);    
+    arr.push_back(root->data);
+}
+
+vector<int> postOrder(Node* root){
+    vector<int> target;
+    postOrderPush(root, target);
+    return target;
 }
