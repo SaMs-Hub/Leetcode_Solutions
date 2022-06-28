@@ -46,13 +46,13 @@ void print(Node* root){
 	print(root->right);
 }
 
-int height(Node* root){
+int getHeight(Node* root){
 	if (root == NULL){
 		return 0;
 	}
 
-	int ls = height(root->left);
-	int rs = height(root->right);
+	int ls = getHeight(root->left);
+	int rs = getHeight(root->right);
 
 	return max(ls, rs) + 1;
 }
@@ -76,9 +76,9 @@ void printKthLevel(Node *root, int k){
 
 
 void printAllLevels(Node* root){
-	int H = height(root);
+	int height = getHeight(root);
 
-	for (int i = 1; i <= H; i++){
+	for (int i = 1; i <= height; i++){
 		printKthLevel(root, i);
 		cout << endl;
 	}
