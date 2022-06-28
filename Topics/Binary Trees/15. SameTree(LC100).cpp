@@ -48,3 +48,27 @@ public:
         
     }
 };
+
+
+// App 2 - Recursive DFS
+bool isSameTree(TreeNode* root1, TreeNode* root2) {
+        // base cases
+        if (root1 == NULL and root2 == NULL){
+        return true;
+    }
+
+    if (root1 == NULL or root2 == NULL){
+        return false;
+    }
+
+    if (root1->val != root2->val){
+        return false;
+    }
+
+    // rec call
+    if (isSameTree(root1->left, root2->left) == false or isSameTree(root1->right, root2->right) == false) {
+        return false;
+    }
+    return true;
+    }
+};
