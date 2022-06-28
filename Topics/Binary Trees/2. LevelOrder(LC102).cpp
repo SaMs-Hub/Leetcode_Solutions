@@ -1,3 +1,4 @@
+// App 1 - brute force
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -81,3 +82,41 @@ int main()
 	printAllLevels(root);
 	return 0;
 }
+
+
+// App 2 - Using 2D vector & queue
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        queue<TreeNode *> queue;
+    queue.push(root);
+
+    vector<vector<int>> res;
+        if(!root) return res;
+    while (!queue.empty())
+    {
+
+        int size = queue.size();
+        vector<int> ans;
+        while (size--)
+        {
+            TreeNode *currentTreeNode = queue.front();
+            queue.pop();
+
+            ans.push_back(currentTreeNode->val);
+            if (currentTreeNode->left != NULL)
+            {
+                queue.push(currentTreeNode->left);
+            }
+
+            if (currentTreeNode->right != NULL)
+            {
+                queue.push(currentTreeNode->right);
+            }
+        }
+        res.push_back(ans);
+    }
+    return res;
+        
+    }
+};
