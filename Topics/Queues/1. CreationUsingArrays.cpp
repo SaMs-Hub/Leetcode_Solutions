@@ -55,7 +55,13 @@ class Queue{
 		int front(){
 			return arr[first];
 		}
-		// 
+	
+	
+		// last element
+		int back(){
+			return arr[rear];
+		}
+		
 
 		// make a destructor
 		~Queue(){
