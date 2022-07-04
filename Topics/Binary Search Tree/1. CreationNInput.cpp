@@ -50,8 +50,10 @@ Node* buildTree(){
     return root;
 }
 
+// for inorder traversal
 void inOrderTraversal(Node* root){
     // if root is null return;
+    
     // else call on rootLeft, printRootData, call on rootRight
     if (root == NULL){
         return;
