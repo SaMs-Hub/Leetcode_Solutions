@@ -43,3 +43,25 @@ int findMaxConsecutiveOnes(vector<int>& arr) {
     maxCount = max(currCount, maxCount);
     return maxCount; 
     }
+
+
+// App3 - O(n3)
+int maxOnes(vector<int> arr){
+    int n = arr.size();
+    int maxCount = 0;
+
+    for (int i = 0; i < n;i++){
+        
+        for (int j = i; j < n;j++){
+            int subCount = 0;
+            for (int k = i; k <= j; k++){
+                subCount += (arr[k] == 1);
+            }
+
+            if (subCount == (j - i + 1)) maxCount = max(maxCount, subCount);
+        }
+    }
+    return maxCount;
+
+
+}
