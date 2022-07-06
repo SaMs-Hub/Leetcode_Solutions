@@ -87,4 +87,21 @@ int maxSubArray(vector<int>& arr) {
 
 
 
+// App 4 - BruteForce O(n3)
+int maxSum(vector<int> &arr){
+    int n = arr.size();
+
+    int maxSum = INT_MIN;
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < n; j++){
+            int currSum = 0;
+            for (int k = i; k <= j; k++){
+                currSum += arr[k];
+            }
+            maxSum = max(maxSum, currSum);
+        }
+    }
+
+    return maxSum;
+}
 
