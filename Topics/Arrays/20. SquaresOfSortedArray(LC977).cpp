@@ -73,3 +73,31 @@ public:
     
 };
 
+
+// App 3
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& arr) {
+     int n = arr.size();
+    vector<int> res;
+    for (int i = 0; i < n; i++){
+        arr[i] = abs(arr[i]);
+    }
+
+    for (int i = 0; i < n; i++){
+        int currMin = INT_MAX;
+        int index;
+
+        for (int j = 0; j < n;j++){
+            if (arr[j] < currMin){
+                currMin = arr[j];
+                index = j;
+            }
+        }
+        arr[index] = INT_MAX;
+        res.push_back(currMin * currMin);
+    }
+    return res;
+    }
+};
+
