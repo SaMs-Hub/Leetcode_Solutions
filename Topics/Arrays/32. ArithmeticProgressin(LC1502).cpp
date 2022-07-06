@@ -1,3 +1,5 @@
+// App 1 - O(nlogn)
+
 class Solution {
 public:
     bool canMakeArithmeticProgression(vector<int>& arr) {
@@ -13,3 +15,4 @@ public:
     return true;
     }
 };
+
