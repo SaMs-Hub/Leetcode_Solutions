@@ -84,3 +84,16 @@ int main()
 
     return 0;
 }
+
+
+// App 2 - Same as Prev
+
+Node* deleteHead(Node* head){
+    if(!head) return head;
+
+    Node* currentNode = head->next;
+ 
+    return currentNode;
+}
+
+
