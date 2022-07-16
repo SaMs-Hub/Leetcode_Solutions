@@ -134,3 +134,27 @@ Node* insertAtKth(Node* head, int k, int data){
 
 }
 
+
+
+Node* insert(Node* head, int pos, int key){
+    if (!head) return head;
+
+    Node* newNode = new Node(key);
+    if (pos == 0){
+        newNode->next = head;
+        head = newNode;
+        return head;
+    }
+
+    Node* currentNode = head;
+
+    int index = 2;
+    while (index < pos){
+         index += 1;
+        currentNode = currentNode->next;
+       
+    }
+    newNode->next = currentNode->next;
+    currentNode->next = newNode;
+    return head;
+}
