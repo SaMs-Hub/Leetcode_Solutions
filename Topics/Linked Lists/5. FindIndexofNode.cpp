@@ -102,3 +102,19 @@ int main()
 
     return 0;
 }
+
+
+
+// Recursive without params
+int findNode(Node* head, int data){
+    if (!head) return -1;
+
+   int index = 1;
+    if (head->data == data) return index;
+
+    int smallerList = findNode(head->next, data);
+    if (smallerList != -1)  return smallerList + 1;
+    else return smallerList;
+
+   
+}
