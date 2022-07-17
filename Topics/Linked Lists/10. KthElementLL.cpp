@@ -1,4 +1,4 @@
-
+// App 1 - BF
 
 //Kth Node
 Node* kthNode(Node* head, int k){
@@ -19,3 +19,16 @@ Node* kthNode(Node* head, int k){
     return currentNode;
 }
 
+
+
+// App 2 - Using Recursion
+Node* getKthNode(Node* head, int key){
+    if (!head) return NULL;
+
+    if (key == 1) return head;
+
+    Node* smallerHead = getKthNode(head->next, key - 1);
+    return smallerHead;
+
+
+}
