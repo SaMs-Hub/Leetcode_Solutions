@@ -1,3 +1,5 @@
+// App1 - BF
+
 ListNode* removekthElement (ListNode* head, int k) {
      // make var to store currnt index and make a tempNode poiting to head
     int index = 0;
@@ -23,4 +25,20 @@ ListNode* removekthElement (ListNode* head, int k) {
 
     // return head;
     return head;
+}
+
+
+// App 2 - Recursive
+Node* getKthNode(Node* head, int key){
+    if (!head) return NULL;
+
+    if (key == 1){
+        return head->next;
+    }
+
+    head->next = getKthNode(head->next, key - 1);
+
+    return head;
+
+
 }
