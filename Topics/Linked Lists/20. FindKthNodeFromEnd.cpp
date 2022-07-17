@@ -1,3 +1,5 @@
+// App 1 - BF
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -76,4 +78,17 @@ int main()
   
    
     return 0;
+}
+
+
+// App 2 - Recursive
+int nthLast(Node* head, int key){
+    int index = 0;
+    if (!head) return -1;
+    
+index = nthLast(head->next, key) + 1;
+
+    if (index == key){
+        cout << head->data;
+    }
 }
