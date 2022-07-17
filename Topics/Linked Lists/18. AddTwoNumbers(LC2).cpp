@@ -1,13 +1,4 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
+// App 1 - Iterative
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* h1, ListNode* h2) {
@@ -50,4 +41,44 @@ public:
         
         
     }
+};
+
+
+
+// App 2 - Recursive
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+ListNode* add(ListNode* A, ListNode* B, int carry = 0){
+    if (!A and !B){
+        if(carry > 0) return new ListNode(carry);
+        return NULL;
+    }
+
+    int val1 = A ? A->val: 0;
+    int val2 = B ? B->val : 0;
+
+    int sum = val1 + val2 + carry;
+
+    ListNode* currentListNode = new ListNode(sum%10);
+    currentListNode->next = add(A?A->next: A, B?B->next: B, sum/10);
+    return currentListNode;
+}
+
+ListNode* addTwoNumbers(ListNode* A, ListNode* B){
+    if (!A) return B;
+    if (!B) return A;
+
+    return add(A, B);
+}
+    
 };
