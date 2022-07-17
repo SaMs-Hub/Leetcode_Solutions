@@ -43,8 +43,33 @@ bool isPalindrome(ListNode* head){
     return true;
 }
 
+// App 2 - Stacks n Queues
 
-// App 2- Naive Using Array
+
+    bool isPalindrome(ListNode* head) {
+        stack<int> start;
+    queue<int> end;
+
+    ListNode* currentNode = head;
+    while (currentNode){
+        start.push(currentNode->val);
+        end.push(currentNode->val);
+        currentNode = currentNode->next;
+    }
+
+    while (!start.empty() and !end.empty()){
+        if (start.top() != end.front()) return false;
+        start.pop();
+        end.pop();
+    }
+    return true;
+
+
+}
+
+
+
+// App 3- Naive Using Array
 bool checkPal(vector<int> arr, int start, int end){
         if (start >= end){
             return true;
@@ -76,7 +101,7 @@ bool checkPal(vector<int> arr, int start, int end){
 
 
 
-// App 3 - Vectors
+// App 4 - Vectors
 
 class Solution {
 public:
