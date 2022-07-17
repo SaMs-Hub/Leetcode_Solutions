@@ -1,3 +1,4 @@
+// App 1 - BF - Single Pointer
 
 Node *removeOccurence(Node* &head, int key)
 {
@@ -25,3 +26,15 @@ Node *removeOccurence(Node* &head, int key)
 
     return head;
 }
+
+
+// App 2 - Recursive
+Node* removeOccurences(Node* head, int key){
+    if (!head) return head;
+
+    head->next = removeOccurences(head->next, key);
+
+    return (head->data == key) ? head->next : head;
+}
+
+
