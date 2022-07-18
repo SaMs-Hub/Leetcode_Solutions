@@ -1,3 +1,5 @@
+// App 1 - O(nlogn)
+
 class Solution {
 public:
     bool containsDuplicate(vector<int>& arr) {
@@ -11,3 +13,11 @@ public:
     }
     
 };
+
+
+
+// App 2 - O(n)
+bool containsDuplicates(vector<int> arr){
+    set<int> res(arr.begin(), arr.end());
+    return res.size() != arr.size();
+}
