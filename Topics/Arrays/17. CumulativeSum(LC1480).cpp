@@ -27,3 +27,10 @@ vector<int> runningSum(vector<int> &nums){
 
     return nums;
 }
+
+
+// Approach 3 - Using STL
+vector<int> runningSum(vector<int> arr){
+    partial_sum(begin(arr), end(arr), begin(arr));
+    return arr;
+}
