@@ -31,6 +31,8 @@ bool containsDuplicates(vector<int> arr){
     }
 
     for (auto y: res){
+    
+        // checking the frequency
         if (y.second >= 2) return true;
     }
     return false;
