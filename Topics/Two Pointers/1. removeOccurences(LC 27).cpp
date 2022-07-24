@@ -1,3 +1,5 @@
+// App 1 - BF
+
 int removeElement(vector<int>& v, int k) {
 	
 	// take var i;
@@ -15,4 +17,11 @@ int removeElement(vector<int>& v, int k) {
 	
 	// return i;
 	return i;
+}
+
+
+// App 2 - STL
+ int removeElement(vector<int>& arr, int k) {
+        auto value = remove(arr.begin(), arr.end(), k);
+    return distance(arr.begin(), value);
 }
