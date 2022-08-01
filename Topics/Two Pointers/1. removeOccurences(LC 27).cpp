@@ -1,4 +1,4 @@
-// App 1 - BF
+// App 1 - Two Pointers
 
 int removeElement(vector<int>& v, int k) {
 	
