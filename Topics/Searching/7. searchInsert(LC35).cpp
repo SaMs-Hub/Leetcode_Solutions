@@ -12,4 +12,25 @@ int searchInsert(vector<int> &arr, int key){
 }
 
 
-// App 2 - Searching 
+// App 2 - Searching O(logN)
+ int findIndex(vector<int> arr, int low, int high, int key, int index){
+    if (low <= high){
+        int mid = (low + high)/2;
+
+        if (arr[mid] == key) return mid;
+        else if (arr[mid] < key) {
+            index = mid;
+            return findIndex(arr, mid + 1, high, key, index);
+        }else return findIndex(arr, low, mid - 1, key, index);
+
+    }
+    return index + 1;
+}
+
+int searchInsert(vector<int> &arr, int key){
+    int n = arr.size();
+    int index = -1;
+    
+    return findIndex(arr, 0, n - 1, key, index);
+   
+}
