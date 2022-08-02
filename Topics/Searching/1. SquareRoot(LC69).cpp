@@ -11,7 +11,7 @@ int mySqrt(int x)
         return x;
     }
     // iterate from 1 to n - 1, if i * i > nums, return n - 1
-    for (int i = 1; i < x; i++){
+    for (long long i = 1; i < x; i++){
         if (i * i > x){
             return i - 1;
         }
@@ -44,3 +44,20 @@ int main()
    return ans;
 
 }
+
+// App 2.2 - Recursive BinarySearch
+int getBinary(int n, int low, int high, int ans){
+    if (high >= low){
+        int mid = (low + high)/2;
+
+        if (mid <= n/mid) return getBinary(n, mid + 1, high, mid);
+        else return getBinary(n, low, mid - 1, ans);
+    }
+    return ans;
+}
+
+int mySqrt(int n){
+    return getBinary(n, 1, n, 1);
+
+}
+
