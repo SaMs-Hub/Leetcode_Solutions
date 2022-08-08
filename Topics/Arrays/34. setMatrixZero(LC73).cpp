@@ -22,16 +22,16 @@ void changeRowColumn(vector<vector<int>>  &mat, int x, int y)
     int n = mat[0].size();
 
 
-    // traverse over the and replace nonZero with static(-1);
+    // traverse over the and replace nonZero with static(-999);
     for (int j = 0; j < n; j++){
         if(mat[x][j] != 0){
-            mat[x][j] = -1;
+            mat[x][j] = -999;
         }
     }
 
     for (int i = 0; i < m; i++){
         if (mat[i][y] != 0){
-            mat[i][y] = -1;
+            mat[i][y] = -999;
         }
     }
 
@@ -69,7 +69,7 @@ void convert(vector<vector<int>>  &mat)
     // once u get static change back to 0 by traversing over m,n
     for (int i = 0; i < m; i++){
         for (int j = 0; j < n; j++){
-            if (mat[i][j] == -1){
+            if (mat[i][j] == -999){
                 mat[i][j] = 0;
             }
         }
