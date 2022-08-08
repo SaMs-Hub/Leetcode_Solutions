@@ -1,51 +1,51 @@
-class Stack {
-public:
-	ListNode* topTrack;
-	int stackSize;
-	int stackCapacity;
-	
-	Stack (int capacity) {
-		topTrack = NULL;
-		stackSize = 0;
-		stackCapacity = capacity;
-		
-	}
+class Node{
+    public:
+        int data;
+        Node* next;
 
-	bool isEmpty() {
-		return topTrack == NULL;
-		
-	}
-	
-	int size() {
-		return stackSize;
-		
-	}
-	
-	int top() {
-		if (!isEmpty()){
-			return topTrack->data;
-		}
-			return -1;
-		
-		
-	}
-	
-	void push(int element) {
-		ListNode* temp = new ListNode(element);
-		temp->data = element;
-		temp->next = topTrack;
-		topTrack = temp;
-		stackSize+= 1;
-		
-	}
-	
-	void pop() {
-		if (topTrack == NULL){
-			return;
-		}
-		
-		topTrack = topTrack->next;
-		stackSize--;
-		
-	}
+        Node(int data){
+            this->data = data;
+            this->next = NULL;
+        }
+};
+
+class Stack{
+    public:
+        Node* topTrack;
+        int stackSize;
+        int totalSize;
+
+        Stack (int capacity){
+            topTrack = NULL;
+            stackSize = 0;
+            totalSize = capacity;
+        }
+
+        bool isEmpty(){
+            return topTrack == NULL;
+        }
+
+        int size(){
+            return stackSize;
+        }
+
+        int top(){
+            if (!isEmpty()) return topTrack->data;
+            else return -1;
+        }
+
+        void push(int element){
+            Node* extraNode = new Node(element);
+            extraNode->data = element;
+            extraNode->next = topTrack;
+            topTrack = extraNode;
+            stackSize += 1;
+        }
+
+        void pop(){
+            if (!topTrack) return;
+            topTrack = topTrack->next;
+            stackSize -= 1;
+
+        }
 };
