@@ -70,3 +70,18 @@ pair<int,int> twoSum(vector<int> &arr, int target) {
    }
     
 }
+
+
+// Hashing with Array
+vector<int> twoSum(vector<int> &arr, int target){
+    unordered_map<int, int> res;
+    int n = arr.size();
+    for (int i = 0; i < n; i++){
+        auto value = res.find(target - arr[i]);
+        if (value != res.end()) return {res[target - arr[i]], i};
+
+
+        res[arr[i]] = i;
+    }
+    return {};
+   }
