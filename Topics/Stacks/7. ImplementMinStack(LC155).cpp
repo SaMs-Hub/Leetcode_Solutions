@@ -1,4 +1,4 @@
-// App 1 - Naive
+// App 1 - Naive - Using 2nd helper stack to maintain the least element
 class MinStack {
 public:
     stack<int> stack1, stack2;
