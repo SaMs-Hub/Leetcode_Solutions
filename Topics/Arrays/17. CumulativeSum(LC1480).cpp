@@ -15,6 +15,7 @@ public:
 };
 
 
+
 // Approach 2 - Using same vector
 vector<int> runningSum(vector<int> &nums){
     
@@ -33,4 +34,16 @@ vector<int> runningSum(vector<int> &nums){
 vector<int> runningSum(vector<int> arr){
     partial_sum(begin(arr), end(arr), begin(arr));
     return arr;
+}
+
+
+// Approach 4 - O(n)
+vector<int> getCumulativeSum(vector<int> &arr){
+    vector<int> res(arr.size());
+    int n = arr.size();
+    res[0] = arr[0];
+    for (int i = 1; i < n; i++){
+        res[i] = res[i - 1] + arr[i];
+    }
+    return res;
 }
