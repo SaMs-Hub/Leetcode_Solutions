@@ -1,4 +1,4 @@
-// App1 - Naive
+// App1 - Naive O((m + n) * log (m + n))
 vector<int> mergeSortedArrays(vector<int> &A, vector<int> B) {
     vector<int> res(A.size() + B.size());
 	
