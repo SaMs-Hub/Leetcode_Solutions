@@ -23,3 +23,39 @@ public:
     }
 };
 
+
+
+// App 2 - Two Pointers O(n)
+class Solution {
+public:
+    int trap(vector<int>& heights) {
+    int n = heights.size();
+    int totalRainWater = 0;
+
+    int left = 0;
+    int right = n - 1;
+    int maxLeft = 0, maxRight = 0;
+
+    while (left <= right)
+    {
+        if (heights[left] <= heights[right])
+        {
+            if (heights[left] >= maxLeft)
+                maxLeft = heights[left];
+            else
+                totalRainWater += maxLeft - heights[left];
+            left += 1;
+        }
+        else
+        {
+            if (heights[right] >= maxRight)
+                maxRight = heights[right];
+            else
+                totalRainWater += maxRight - heights[right];
+            right -= 1;
+        }
+    }
+
+    return totalRainWater;
+    }
+};
