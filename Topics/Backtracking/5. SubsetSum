@@ -1,0 +1,33 @@
+// App 1 - Backtracking Expo
+
+int isValid(vector<int> arr, int size, int target){
+    if (target == 0) return 1;
+    if (size == 0) return 0;
+
+    if (arr[size - 1] > target) return isValid(arr, size - 1, target);
+    return isValid(arr, size - 1, target) or isValid(arr, size - 1, target - arr[size - 1]);
+}
+
+bool hasValidSubset(vector<int> &arr, int target) {
+    return isValid(arr, arr.size(), target);
+   
+}
+
+// App 2 - DP TopDown
+
+vector<vector<int>> dp;
+int isValid(vector<int> arr, int size, int target){
+    if (target == 0) return 1;
+    if (size == 0) return 0;
+    if (dp[size][target] != -1) return dp[size][target];
+
+    if (arr[size - 1] > target) return dp[size][target] = isValid(arr, size - 1, target);
+    return dp[size][target] =  isValid(arr, size - 1, target) or isValid(arr, size - 1, target - arr[size - 1]);
+}
+
+bool hasValidSubset(vector<int> &arr, int target) {
+    vector<vector<int>> res(arr.size() + 1, vector<int> (target + 1, - 1));
+    dp = res;
+    return isValid(arr, arr.size(), target);
+   
+}
