@@ -70,3 +70,49 @@ public:
     }
 };
 
+// App 3 - Single vector
+vector<int> zigzagLevelOrderTraversal(Node* root) {
+    // add your logic here
+    deque<Node*> deque;
+    vector<int> ans;
+
+    deque.push_back(root);
+    ans.push_back(root->data);
+    Node* temp;
+   
+    int level = 1;
+                
+    while (!deque.empty()) {
+        int n = deque.size();
+ 
+        for (int i = 0; i < n; i++) {
+            if (level%2 == 0) {
+                temp = deque.back();
+                deque.pop_back();
+                if (temp->left) {
+                    deque.push_front(temp->left);
+                    ans.push_back(temp->left->data);
+                }
+                if (temp->right) {
+                    deque.push_front(temp->right);
+                    ans.push_back(temp->right->data);
+                }
+            }
+            else {
+                temp = deque.front();
+                deque.pop_front();
+                if (temp->right) {
+                    deque.push_back(temp->right);
+                    ans.push_back(temp->right->data);
+                }
+                if (temp->left) {
+                    deque.push_back(temp->left);
+                    ans.push_back(temp->left->data);
+                }
+            }
+        }
+        level++;
+    }
+    return ans;
+}
+
