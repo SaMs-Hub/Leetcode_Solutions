@@ -36,7 +36,4 @@ vector<int> checkPrimes(int n){
     }
     return primes;
 
-    
-   
-    return primes;
 }
