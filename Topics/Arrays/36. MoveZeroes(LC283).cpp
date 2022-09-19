@@ -15,6 +15,11 @@ public:
     for (int i = 0; i < count; i++){
         temp.push_back(0);
     }
+        // same with while 
+//         while (count != 0){
+// 		res.push_back(0);
+// 		count -= 1;
+// 	}
 
     for (int i = 0; i < temp.size(); i++){
         arr[i] = temp[i];
