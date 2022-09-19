@@ -35,9 +35,7 @@ void changeRowColumn(vector<vector<int>>  &mat, int x, int y)
         }
     }
 
-    
-
-
+   
 }
 
 void convert(vector<vector<int>>  &mat)
