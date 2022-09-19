@@ -16,3 +16,20 @@ public:
     }
 };
 
+// App 2 - Using sets O(n)
+
+bool canMakeArithmeticProgression(vector<int>& arr) {
+	set<int> iSet(arr.begin(), arr.end());
+	int n = iSet.size();
+	if ( n < 2) return true;
+
+	auto it = iSet.begin();
+	int commonDiff = *++it - *iSet.begin();
+	for (; it !=  iSet.end();it++){
+		if (*it - *prev(it) != commonDiff) return false;
+	}
+	return true;
+        
+        
+    }
+
