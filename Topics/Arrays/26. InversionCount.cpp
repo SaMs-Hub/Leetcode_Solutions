@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Indicates how close/far is the array to get sorted
 int inversionCount(vector<int> &array)
 {
     int count = 0;
