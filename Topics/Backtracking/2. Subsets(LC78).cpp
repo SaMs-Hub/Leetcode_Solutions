@@ -1,4 +1,4 @@
-// App 1 - Recursive
+// App 1 - Recursive approach
 class Solution {
 public:
    void getSubsets(vector<int> &arr, int start, vector<int> &currSubsets, vector<vector<int>> &allSubsets){
