@@ -38,5 +38,16 @@ bool containsDuplicates(vector<int> arr){
     }
     return false;
 }
+
+// App 4 - Using unorderedsets
+ bool containsDuplicates(vector<int> &arr)
+{
+	unordered_set<int> res;
+	for (auto c:arr){
+		if (res.find(c) != res.end()) return true;
+		res.insert(c);
+	}
+	return false;
+}
     
     
