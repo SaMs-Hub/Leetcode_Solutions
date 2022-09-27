@@ -48,3 +48,26 @@ public:
     return true;
 }
 };
+
+
+// App 3 - Using arrays O(n)
+class Solution {
+public:
+bool isAnagram(string A, string B){
+	int l1 = A.size();
+	int l2 = B.size();
+    
+    if (l1 != l2) return false;
+
+	vector<int> res(26);
+
+	for (auto c: A) res[c - 'a'] ++;
+	for (auto c: B){
+		res[c - 'a']--;
+		if (res[c - 'a'] < 0) return false;
+	}
+	return true;
+
+
+}
+};
