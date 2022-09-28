@@ -50,6 +50,8 @@ vector<int> twoSum(vector<int> &arr, int target)
             right--;
         }
     }
+	// if not found
+	return {};
   
   
   
