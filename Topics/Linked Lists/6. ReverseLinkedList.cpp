@@ -1,4 +1,4 @@
-// Approach 1 - BruteForce
+// Approach 1 - BruteForce O(n)
 #include <bits/stdc++.h>
 using namespace std;
 
