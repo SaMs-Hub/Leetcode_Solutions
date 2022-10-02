@@ -89,6 +89,7 @@ Node* merge(Node* A, Node* B){
 
 int main()
 {
+    // taking inputs
     Node* head1 = takeInput();
     Node* head2 = takeInput();
 
