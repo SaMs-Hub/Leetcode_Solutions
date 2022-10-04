@@ -1,4 +1,4 @@
-// App 1 - Two Pointers O(1)
+// App 1 - Two Pointers O(n)
 bool isPalindrome(string str)
 {
    int i = 0;
@@ -15,4 +15,17 @@ bool isPalindrome(string str)
      j --;
    }
    return true;
+}
+
+// App 2 - Naive 
+bool isPalindrome(string s)
+{
+    string str = "";
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (isalpha(s[i]) || isdigit(s[i]))
+            str += tolower(s[i]);
+    }
+
+    return str == string(str.rbegin(), str.rend());
 }
