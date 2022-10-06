@@ -38,3 +38,29 @@ public:
       return maxSub;
       }
 };
+
+
+// App 3 - Sliding Window O(n)
+class Solution {
+public:
+    int lengthOfLongestSubstring(string str) {
+    int n = str.size();
+    int i = 0, j= 0;
+    
+    int result = 0;
+    unordered_set<char> res;
+
+    while (j < n){
+        if (res.find(str[j]) == res.end()){
+            res.insert(str[j]);
+            result = max(result, j - i + 1);
+            j++;
+        }else{
+            res.erase(str[i]);
+            i++;
+        }
+
+    }
+    return result;
+    }
+};
