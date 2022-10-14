@@ -1,4 +1,4 @@
-// App 1 - O(nlogn)
+// App 1 - O(nlogn) Naive 
 
 class Solution {
 public:
@@ -39,7 +39,7 @@ bool containsDuplicates(vector<int> arr){
     return false;
 }
 
-// App 4 - Using unorderedsets
+// App 4 - Using unorderedsets O(n)
  bool containsDuplicates(vector<int> &arr)
 {
 	unordered_set<int> res;
