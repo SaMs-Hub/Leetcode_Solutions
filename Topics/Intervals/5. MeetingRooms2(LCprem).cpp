@@ -38,3 +38,27 @@
 
 
     }
+
+
+// App 2 - PriorityQueues
+ int minMeetingRooms(vector<vector<int>> &intervals) {
+    int n = intervals.size();
+    if (n == 1) return 1;
+    sort(intervals.begin(), intervals.end());
+
+    priority_queue<int, vector<int>, greater<int>> pq;
+
+    pq.push(intervals[0][1]);
+
+    int currentCount = 1;
+
+    while (currentCount < n){
+        if (intervals[currentCount][0] >= pq.top()) pq.pop();
+        pq.push(intervals[currentCount][1]);
+
+        currentCount++;
+    }
+    return pq.size();
+    
+
+    }
