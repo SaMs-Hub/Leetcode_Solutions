@@ -16,3 +16,18 @@ public:
 }
 };
 
+
+// App 2 XOR O(n)
+class Solution {
+public:
+
+    int missingNumber(vector<int> &arr){
+    int n = arr.size();
+
+    int result = n;
+    for (int i = 0; i < n; i++) result = result ^ i ^ arr[i];
+    return result;
+
+}
+};
+
