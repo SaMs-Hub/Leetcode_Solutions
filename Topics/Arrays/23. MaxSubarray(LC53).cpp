@@ -64,7 +64,7 @@ int maxSubArray(vector<int>& arr) {
     }
 
 
-// Approach 3 - Dynamic Programming
+// Approach 3 - Dynamic Programming - Greddy O(n)
 int maxSubArray(vector<int>& arr) {
         if (arr.size() == 1){
 		return arr[0];
