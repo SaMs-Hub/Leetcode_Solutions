@@ -17,3 +17,38 @@ unordered_map<Node*, Node*> res;
 
         
     }
+    
+    
+ // BFS O(m + n)
+ 
+    unordered_map<Node*, Node*> m;
+ Node* cloneGraph(Node* node) {
+    if (!node) return NULL;
+
+    Node* copyNode = new Node(node->val);
+    m[node] = copyNode;
+
+    queue<Node*> q;
+    q.push(node);
+
+     while (!q.empty()) {
+            Node* curr = q.front();
+            q.pop();
+            
+            for (int i = 0; i < curr->neighbors.size(); i++) {
+                Node* neighbor = curr->neighbors[i];
+                
+                if (m.find(neighbor) == m.end()) {
+                    m[neighbor] = new Node(neighbor->val);
+                    q.push(neighbor);
+                }
+                
+                m[curr]->neighbors.push_back(m[neighbor]);
+            }
+        }
+
+    return copyNode;
+
+
+        
+    }
