@@ -18,14 +18,16 @@ bool isPalindrome(string str)
 }
 
 // App 2 - Naive 
-bool isPalindrome(string s)
-{
+bool isPalindrome(string s) {
+    // can check two strings after reversing them
+    // initialize a string and push alphaNum chars
+    // reverse it and check it with original
+
     string str = "";
-    for (int i = 0; i < s.size(); i++)
-    {
-        if (isalpha(s[i]) || isdigit(s[i]))
-            str += tolower(s[i]);
+    for (int i= 0; i < s.size(); i++){
+        if (isalnum(s[i])) str.push_back(tolower(s[i]));
     }
 
     return str == string(str.rbegin(), str.rend());
-}
+     
+ }
