@@ -1,0 +1,37 @@
+// App 1 O(log n)
+ap() {
+        
+    }
+    
+  unordered_map<string, vector<pair<int, string>>> res;
+
+    
+    void set(string key, string value, int timestamp) {
+        res[key].push_back({timestamp, value});
+    }
+    
+    string get(string key, int timestamp) {
+if (res.find(key) == res.end()) {
+            return "";
+        }
+        
+        int low = 0;
+        int high = res[key].size() - 1;
+        
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (res[key][mid].first < timestamp) {
+                low = mid + 1;
+            } else if (res[key][mid].first > timestamp) {
+                high = mid - 1;
+            } else {
+                return res[key][mid].second;
+            }
+        }
+        
+        if (high >= 0) {
+            return res[key][high].second;
+        }
+        return "";
+       
+    }
