@@ -1,5 +1,5 @@
 // App 1 DFS O(2**n)
-class Solution {
+class Solution { 
 public:
  void dfs(vector<int>& candidates, int target, int sum, int start, vector<int> &current, vector<vector<int>> &result){
     if (sum > target) return;
