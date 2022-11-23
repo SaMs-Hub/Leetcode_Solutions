@@ -1,4 +1,4 @@
-/// APp 1 Left Shing O(logx)
+/// App 1 Left Shing O(logx)
 class Solution {
 public:
    
