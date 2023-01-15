@@ -49,3 +49,6 @@ int isVowel(char c){
 
 
 };
+
+
+Ex: Max monkeys in k chairs
