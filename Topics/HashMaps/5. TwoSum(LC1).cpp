@@ -1,5 +1,5 @@
-// App 1 - Naive
-#include <bits/stdc++.h>
+// App 1 - Naive O(n ^ 2)
+#include <bits/st c++.h>
 using namespace std;
 
 vector<int> twoSum(vector<int> &A, int target)
@@ -23,7 +23,7 @@ int main()
     return 0;
 }
 
-// App 2 - Two pointers
+// App 2 - Two pointers O(nlogn)
 vector<int> twoSum(vector<int> &arr, int target)
 {
 
@@ -59,7 +59,7 @@ vector<int> twoSum(vector<int> &arr, int target)
 }
 
 
-// App 3 - Hashing
+// App 3 - Hashing O(n)
 pair<int,int> twoSum(vector<int> &arr, int target) {
 	unordered_map<int, int> temp;
    for (int i = arr.size() - 1; i >= 0; i--){
@@ -87,3 +87,6 @@ vector<int> twoSum(vector<int> &arr, int target){
     }
     return {};
    }
+   
+   
+ Ex: Find two cages with n monkeys
