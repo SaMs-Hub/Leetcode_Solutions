@@ -42,3 +42,5 @@ public:
     return {id1, id2};
     }
 };
+
+ Ex: Find two cages with n monkeys
