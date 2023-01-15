@@ -2,19 +2,19 @@
 
 int removeElement(vector<int>& v, int k) {
 	
-	int count = nums.size();
-    int i = 0;
+	int size = nums.size();
 
-    for (int j = 0; j < count; j++){
-        if (nums[j] != val){
-            nums[i] = nums[j];
-            i++;
-        }
+	int i = 0;
+	int j = 0;
+	while (j < size){
+		if (nums[j] != val){
+			nums[i] = nums[j];
+			i++;
+		}
+		j++;
+	}
 
-    }   
-
-    return i;
-    }
+	return i;
 }
 
 
@@ -23,3 +23,5 @@ int removeElement(vector<int>& v, int k) {
         auto value = remove(arr.begin(), arr.end(), k);
     return distance(arr.begin(), value);
 }
+
+Ex: Remove tiger from monkey cages
