@@ -1,3 +1,4 @@
+Note: Refer this(https://github.com/SaMs-Hub/Problem_Solving/blob/main/Topics/HashMaps/5.%20TwoSum(LC1).cpp) for other approaches
 // App 1 - Naive O(n2)
 class Solution {
 public:
