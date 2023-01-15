@@ -43,3 +43,6 @@ void moveZeroes(vector<int>& arr) {
         }
     }
     }
+    
+    
+Ex: Move tigers to the last cages
