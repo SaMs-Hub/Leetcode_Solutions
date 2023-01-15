@@ -38,3 +38,5 @@ int maxKSubarraySum(vector<int> &arr, int k) {
     }
     return maxSum;
 }
+
+Ex: max age of n monkeys
