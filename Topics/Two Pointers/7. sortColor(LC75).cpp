@@ -25,3 +25,6 @@ public:
     }
     }
 };
+
+
+Ex: Sort 3 monkeys based on age
