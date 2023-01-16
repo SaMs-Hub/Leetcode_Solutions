@@ -52,3 +52,5 @@ public:
 };
 
 
+Ex: Find monkeys with same ages in two cages
+
