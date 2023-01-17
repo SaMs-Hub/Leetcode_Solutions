@@ -62,3 +62,6 @@ int findPairs(vector<int> arr, int k){
 
 }
 
+
+Ex: Get monkey ages with given difference
+
