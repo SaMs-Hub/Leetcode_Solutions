@@ -90,3 +90,5 @@ vector<vector<int>> threeSum(vector<int> arr)
   }
   return res;
 }
+
+Ex: Sum of ages of monkeys
