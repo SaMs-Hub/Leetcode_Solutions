@@ -38,3 +38,6 @@ vector<int> twoSum(vector<int>& arr, int target) {
     return res;
         
 }
+
+
+Ex: Get age of sorted monkeys
