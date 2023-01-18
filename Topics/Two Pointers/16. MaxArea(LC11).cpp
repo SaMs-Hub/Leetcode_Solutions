@@ -32,3 +32,5 @@ int maxArea(vector<int>& arr) {
     } 
     return res;
 }
+
+Ex: Max area of water got in monkey cages
