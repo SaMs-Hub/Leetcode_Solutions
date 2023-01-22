@@ -1,4 +1,4 @@
-// App 1 - Two Pointers O(1)
+// App 1 - Two Pointers TC:O(1)
 
 int removeElement(vector<int>& v, int k) {
 	
