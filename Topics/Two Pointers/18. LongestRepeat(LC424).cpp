@@ -25,3 +25,5 @@ public:
      }
 };
 };
+
+Ex: Animal replacement with n positions
