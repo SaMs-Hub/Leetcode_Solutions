@@ -25,3 +25,6 @@
     return result;
         
     }
+    
+    
+   Ex: Eldest monkey in every k monkeys
