@@ -30,23 +30,20 @@ int main()
 // Approach 2 - Using Maps
 class Solution {
 public:
-    bool isAnagram(string A, string B) {
-    if (A.size() != B.size()){
-        return false;
-    }
+ bool isAnagram(string s, string t) {
+    if (s.size() != t.size()) return false;
 
-    unordered_map<char, int> value;
-    for (auto c: A){
-        value[c]++;
-    }
+  
+  unordered_map<char, int> seats;
 
-    for (auto c: B){
-        value[c]--;
-        if (value[c] < 0) return false;
+  for (auto x: s) seats[x]++;
+  for (auto x: t){
+    seats[x]--;
+    if (seats[x] < 0) return false;
+  }
+  return true;
+        
     }
-
-    return true;
-}
 };
 
 
@@ -71,3 +68,6 @@ bool isAnagram(string A, string B){
 
 }
 };
+
+
+Ex: Check if monkeys are anagrams
