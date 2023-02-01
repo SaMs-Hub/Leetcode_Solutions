@@ -31,3 +31,6 @@ bool isPalindrome(string s) {
     return str == string(str.rbegin(), str.rend());
      
  }
+
+
+Ex: Palindrome sitting monkeys
