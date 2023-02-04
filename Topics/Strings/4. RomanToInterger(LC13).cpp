@@ -4,7 +4,7 @@ class Solution {
 public:
     
     int romanValue(char romanLetter)
-{
+ {
     if (romanLetter == 'I')
     {
         return 1;
