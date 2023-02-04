@@ -20,3 +20,6 @@ public:
     return result;
     }
 };
+
+
+// Refer this for better approaches https://github.com/SaMs-Hub/Problem_Solving/blob/main/Topics/Two%20Pointers/5.%20maxVowels(LC1456).cpp
