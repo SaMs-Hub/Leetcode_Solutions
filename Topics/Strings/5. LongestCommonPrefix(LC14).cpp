@@ -43,3 +43,6 @@ string lcp(vector<string> str){
 
     return lcp;
 }
+
+
+Ex: Common monkeys in set of monkeys
