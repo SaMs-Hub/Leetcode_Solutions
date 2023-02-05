@@ -28,3 +28,6 @@ public:
         
     }
 };
+
+
+Ex: Find first pair of monkeys in bigger pair
