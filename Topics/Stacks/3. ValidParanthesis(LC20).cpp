@@ -19,3 +19,6 @@ bool isBalancedParentheses(string str) {
     }
     return build.empty();
 }
+
+
+Ex: Categories of monkeys( baby, kid, adult)
