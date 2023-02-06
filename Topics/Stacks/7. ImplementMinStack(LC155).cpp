@@ -30,3 +30,6 @@ public:
  * int param_3 = obj->top();
  * int param_4 = obj->getMin();
  */
+ 
+ 
+ Ex: Min stack of monkeys
