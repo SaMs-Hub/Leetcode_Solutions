@@ -70,3 +70,5 @@ public:
     
 }
 };
+
+Ex: stack of values
