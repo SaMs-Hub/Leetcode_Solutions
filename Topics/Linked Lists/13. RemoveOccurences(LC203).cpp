@@ -38,3 +38,12 @@ Node* removeOccurences(Node* head, int key){
 }
 
 
+// App3 Using JS Recursion
+var removeElements = function(head, val) {
+    if(head == null) return head;
+    head.next = removeElements(head.next, val);
+    if (head.val === val) return head.next;
+    else return head;
+    
+};
+
