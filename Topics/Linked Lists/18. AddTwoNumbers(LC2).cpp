@@ -82,3 +82,29 @@ ListNode* addTwoNumbers(ListNode* A, ListNode* B){
 }
     
 };
+
+
+// Using JS
+
+var add = function(l1,l2, carry = 0){
+    if (!l1 && !l2){
+        if (carry > 0) return new ListNode(carry);
+        return null;
+    }
+
+    let val1 = l1 ? l1.val : 0;
+    let val2 = l2 ? l2.val : 0;
+
+    let sum = val1 + val2 + carry;
+
+    let currentListNode = new ListNode(sum%10);
+    currentListNode.next = add(l1 ? l1.next : l1, l2 ? l2.next : l2, Math.floor(sum / 10));
+
+    return currentListNode;
+}
+var addTwoNumbers = function(l1, l2) {
+    if (!l1) return l2;
+    if (!l2) return l1;
+
+    return add(l1, l2);
+};
