@@ -1,5 +1,5 @@
 // Two pointers O(n)
-// using hashmap
+// using hashmap - works with unsorted as well
 var twoSum = function(arr, target) {
   
     let map = new Map();
