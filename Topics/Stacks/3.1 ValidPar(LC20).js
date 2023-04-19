@@ -9,13 +9,12 @@ var isValid = function(str) {
 
     for (let x of str) {
 
+     
         let isPresent = x in map;
         if (!isPresent) {
             stack.push(x);
             continue;
         }
-
-        console.log(stack, x, map[x])
 
         let isEqual = stack[stack.length - 1] === map[x];
         if (isEqual) {
