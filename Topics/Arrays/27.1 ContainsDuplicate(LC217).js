@@ -43,3 +43,16 @@ var containsDuplicate = function(nums) {
     
 };
 
+// App 4 Using Map
+var containsDuplicate = function(nums) {
+   const map = new Map();
+
+   for (let x of nums){
+       if (map.has(x)) return true;
+       map.set(x, true);
+   }
+
+   return false;
+    
+};
+
