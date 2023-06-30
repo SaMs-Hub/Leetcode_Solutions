@@ -19,3 +19,25 @@ const getMaxArea = (arr) => {
 
 
 // App2 Two pointers
+const getMaxArea = (arr) => {
+    let maxArea = 0;
+    // let allAreas = [];
+    let currentArea = 0;
+
+    let [left, right] = [0, arr.length - 1];
+
+    while (left < right) {
+        currentArea = (right - left) * Math.min(arr[left], arr[right]);
+        //allAreas.push(currentArea);
+        maxArea = Math.max(maxArea, currentArea);
+
+        if (arr[left] <= arr[right]) left++;
+        else right--;
+    }
+
+    //return [maxArea, allAreas];
+    return maxArea;
+
+}
+
+
