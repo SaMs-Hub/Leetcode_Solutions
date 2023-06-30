@@ -16,21 +16,27 @@
 }
 
 // App 2 - Two Pointers O(n)
-int maxArea(vector<int>& arr) {  
+int maxArea(vector<int> &arr)
+{
+    int currentArea = 0;
+    int maxArea = 0;
+
     int left = 0;
     int right = arr.size() - 1;
 
-    int res = 0;
-    int currArea = 0;
+    while (left < right)
+    {
+        currentArea = (right - left) * min(arr[left], arr[right]);
+        maxArea = max(maxArea, currentArea);
 
-    while (left < right){
-        currArea = (right - left) * min(arr[left], arr[right]);
-        res = max(res, currArea);
+        if (arr[left] <= arr[right])
+            left++;
+        else
+            right--;
+    }
 
-        if (arr[left] <= arr[right]) left++; 
-        else right--;
-    } 
-    return res;
+    return maxArea;
 }
+
 
 Ex: Max area of water got in monkey cages
