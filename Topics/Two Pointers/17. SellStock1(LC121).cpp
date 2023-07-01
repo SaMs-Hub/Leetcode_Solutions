@@ -1,13 +1,13 @@
 // App 1 - Naive
  int maxProfit(vector<int>& arr) {
     int minValue = arr[0];
-    int maxDiff = 0;
+    int maxProfitValue = 0;
 
     for (int i = 0; i < arr.size(); i++){
         minValue = min(arr[i], minValue);
-        maxDiff = max(arr[i] - minValue, maxDiff);
+        maxProfitValue = max(arr[i] - minValue, maxProfitValue);
     }
-    return maxDiff;
+    return maxProfitValue;
 
         
 }
