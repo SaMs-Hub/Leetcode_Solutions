@@ -1,13 +1,14 @@
 // Naive
 var maxProfit = function(arr) {
-    let [maxDiff, minValue] = [0, arr[0]];
-    for (let i = 0; i < arr.length; i++){
-        minValue = Math.min(arr[i], minValue);
-        maxDiff = Math.max(arr[i] - minValue, maxDiff);
+  let [maxProfitValue, minValue] = [0, arr[0]];
+
+    for (let x of arr) {
+        minValue = Math.min(minValue, x);
+        maxProfitValue = Math.max(maxProfitValue, x - minValue);
 
     }
 
-    return maxDiff;
+    return maxProfitValue;
 };
 
 
