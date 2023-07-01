@@ -12,17 +12,18 @@ var maxProfit = function(arr) {
 };
 
 
-// Two pointers
+// Two pointers - O(n)
 var maxProfit = function(arr) {
-   let [i, j, maxProfit] = [0, 1, 0];
+   let [left, right, maxProfitValue] = [0, 1, 0];
 
-   while (j <= arr.length){
-       if (arr[i] < arr[j]){
-           maxProfit = Math.max(maxProfit, arr[j] - arr[i]);
-       }else i = j;
+    while (right <= arr.length) {
+        if (arr[left] < arr[right]) {
+            maxProfitValue = Math.max(maxProfitValue, arr[right] - arr[left]);
+        } else left = right;
 
-       j++;
-   }
+        right++;
+    }
 
-   return maxProfit;
+    return maxProfitValue;
 };
+
