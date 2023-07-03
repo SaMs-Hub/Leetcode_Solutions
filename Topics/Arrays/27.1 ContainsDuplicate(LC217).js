@@ -6,7 +6,7 @@ var containsDuplicate = function(nums) {
     
 };
 
-// App2 Using sets with break
+// App2 Using sets with break  O(n)
 var containsDuplicate = function(nums) {
     let numSet = new Set();
 
@@ -22,7 +22,7 @@ var containsDuplicate = function(nums) {
 };
 
 
-// App 3  Using two pointers
+// App 3  Using two pointers  O(n)
 var containsDuplicate = function(nums) {
     nums.sort((a, b) =>  a - b);
 
@@ -53,6 +53,34 @@ var containsDuplicate = function(nums) {
    }
 
    return false;
+    
+};
+
+// App 5 Naive O(n^2)
+
+var containsDuplicate = function(arr) {
+     let n = arr.length;
+
+    for (let i = 0; i < n; i++) {
+        for (let j = i + 1; j < n; j++) {
+            if (arr[i] === arr[j]) return true;
+        }
+    }
+    return false;
+};
+
+// App 6 Naive with sort O(n * long)
+
+var containsDuplicate = function(arr) {
+    arr.sort((a, b) => a - b);
+    let n = arr.length;
+
+    for (let i = 0; i < n; i++) {
+        if (arr[i] === arr[i + 1]) return true;
+
+    }
+
+    return false;
     
 };
 
