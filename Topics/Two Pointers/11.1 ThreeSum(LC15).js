@@ -41,6 +41,8 @@ var threeSum = function(arr) {
                 result.push([current, arr[j], arr[k]]);
                 j++;
                 k--;
+
+              // to handle duplicate j values
                 while (arr[j] === arr[j - 1] && j < k) j++;
             }
         }
