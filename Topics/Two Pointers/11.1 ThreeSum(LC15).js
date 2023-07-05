@@ -1,3 +1,25 @@
+// App1 - Naive( will throw double chars)
+const threeSum = (arr) => {
+  let result = [];
+  let n = arr.length;
+
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      for (let k = j + 1; k < n; k++) {
+        let sum = arr[i] + arr[j] + arr[k];
+        if (sum === 0) {
+          let arrayValue = [arr[i], arr[j], arr[k]];
+          result.push(arrayValue);
+        }
+      }
+    }
+  }
+
+  return result;
+};
+
+
+// App2 - Using two pointers
 var threeSum = function(arr) {
     let result = [];
     arr.sort((a, b) => a - b);
