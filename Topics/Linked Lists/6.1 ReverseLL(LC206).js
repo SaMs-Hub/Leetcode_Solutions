@@ -1,14 +1,15 @@
-var reverseList = function(head) {
-    let [prev, currentNode, next] = [null, head, null];
+// Using two pointers
+
+const reverseList = (head) => {
+    let [prevNode, currentNode, nextNode] = [null, head, null];
 
     while (currentNode){
-        next = currentNode.next;
-        currentNode.next = prev;
+        nextNode = currentNode.next;
 
-        prev = currentNode;
-        currentNode = next;
+        currentNode.next = prevNode;
+        prevNode = currentNode;
+        currentNode = nextNode;
     }
 
-    return prev;
-    
-};
+    return prevNode;
+}
