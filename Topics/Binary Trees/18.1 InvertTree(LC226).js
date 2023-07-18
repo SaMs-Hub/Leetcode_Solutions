@@ -1,13 +1,12 @@
 // DFS O(n)
-var invertTree = function(root) {
-    if (root === null) return root;
+const invertTree = (root) => {
+    if (!root) return root;
 
-    const leftTree = invertTree(root.left);
-    const rightTree = invertTree(root.right);
+    let leftTree = invertTree(root.left);
+    let rightTree = invertTree(root.right);
 
     root.left = rightTree;
     root.right = leftTree;
 
     return root;
-    
-};
+}
