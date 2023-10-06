@@ -15,15 +15,16 @@ const twoSum = (arr, target) => {
 
 // Two pointers O(n)
 // using hashmap - works with unsorted as well
-var twoSum = function(arr, target) {
-  
-    let map = new Map();
-    for (let i = 0; i < arr.length; i++){
-        let currentNumber = arr[i];
-        let targetNumber = target - currentNumber;
-      
-        if (map.has(targetNumber)) return [i, map.get(targetNumber)];
-        map.set(currentNumber, i);
+const twoSum = (arr, target) => {
+    const myCustomMap = new Map();
+    const n = arr.length;
+    
+    for (let i = 0; i < n; i++){
+        const currentNumber = arr[i];
+        const targetNumber = target - arr[i];
+        if (myCustomMap.has(targetNumber)) return [i, myCustomMap.get(targetNumber)];
+        myCustomMap.set(arr[i], i);
     }
-
-};
+    
+    return -1;
+}
