@@ -1,12 +1,12 @@
 // Recursive soln
-var swapPairs = function(head) {
-    if (head == null || head.next == null) return head;
+const swapPairs = (head) => {
+  if (head === null || head.next === null) return head;
 
-    let currentNode = head.next;
-    head.next = swapPairs(head.next.next);
+  let currentNode = head.next;
 
-    currentNode.next = head;
+  head.next = swapPairs(head.next.next);
 
-    return currentNode;
-    
+  currentNode.next = head;
+
+  return currentNode;
 };
