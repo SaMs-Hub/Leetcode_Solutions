@@ -18,3 +18,12 @@ const secondMax = (arr) => {
    
    return second === -Infinity ? first : second;
 }
+
+
+// set O(n log n)
+const secondMax = (arr) => {
+    let newArr = [...new Set(arr)];
+    newArr.sort((a, b) => (b - a));
+    
+    return newArr.length <= 1 ? newArr[0] :  newArr[1];
+}
