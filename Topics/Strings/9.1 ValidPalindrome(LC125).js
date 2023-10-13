@@ -1,21 +1,21 @@
 // App 1 Naive
 
-const isAlphanumeric = (str) =>  {
-  return str.match(/^[a-zA-Z0-9]+$/) !== null;
-}
+const isAlphaNumeric = (char) => {
+  return char.match(/^[A-Za-z0-9]+$/) !== null;
+};
 
 const isPalindrome = (str) => {
   let string = "";
 
-  for (let i = 0; i < str.length; i++) {
-    if (isAlphanumeric(str[i])) string += str[i];
+  for (let x of str) {
+    if (isAlphaNumeric(x)) string += x;
   }
 
-  return (
-    string.toLowerCase() === string.split("").reverse().join("").toLowerCase()
-  );
+  // not checking with original since it got special characters
+  const isValid =
+    string.toLowerCase() == string.split("").reverse().join("").toLowerCase();
+  return isValid;
 };
-
 
 // Two pointers - O(n)
 
