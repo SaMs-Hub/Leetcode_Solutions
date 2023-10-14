@@ -1,13 +1,13 @@
 // Two pointers - O(n)
 const middleNode = (head) => {
-    if (!head) return ull;
+     if (head === null) return head;
 
-    let [slow, fast] = [head, head];
+  let [slow, fast] = [head, head];
 
-    while (fast && fast.next){
-        slow = slow.next;
-        fast = fast.next.next;
-    }
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
 
-    return slow;
+  return slow;
 }
