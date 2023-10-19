@@ -1,4 +1,4 @@
-// App 1 
+// App 1  Two P
 var moveZeroes = function(nums) {
     let i = 0;
     let j = 1;
@@ -19,3 +19,26 @@ var moveZeroes = function(nums) {
     return nums;
     
 };
+
+
+
+// BF
+
+
+const moveZeroes = (arr) => {
+    const result = [];
+    let count = 0;
+    
+    for (let x of arr){
+        if (x === 0) count +=1;
+        else result.push(x);
+    }
+    
+    let i = 0;
+    while (i < count){
+        result.push(0);
+        i += 1;
+    }
+    
+    return result;
+}
