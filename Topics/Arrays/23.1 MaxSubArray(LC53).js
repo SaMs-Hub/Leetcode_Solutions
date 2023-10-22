@@ -14,3 +14,25 @@ const maxSubArray = (arr) => {
     return maxSum;
     
 }
+
+// BF 
+
+var maxSubArray = function(arr) {
+    let n = arr.length;
+
+    let maxSum = -Infinity;
+
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            let currentSum = 0;
+            for (let k = i; k <= j; k++) {
+                currentSum += arr[k];
+
+
+            }
+
+            maxSum = Math.max(currentSum, maxSum);
+        }
+    }
+    return maxSum;
+};
