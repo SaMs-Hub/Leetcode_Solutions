@@ -1,6 +1,14 @@
-const missingNumber = (nums) => {
-    let n = nums.length;
-    let expectedSum =  (n * (n + 1))/2;
-    let sum = nums.reduce((a, b) => a + b, 0);
-    return expectedSum - sum; 
-};
+// Using math operations - O(n)
+const missingNumber = (arr) => {
+    let n = arr.length;
+    const expectedSum = (n * (n + 1)) / 2;
+
+    const currentSum = arr.reduce((a, b) => {
+        return a + b;
+    })
+
+    let result = expectedSum - currentSum;
+    return result;
+
+
+}
