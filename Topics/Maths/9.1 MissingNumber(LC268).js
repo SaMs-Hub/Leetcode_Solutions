@@ -12,3 +12,23 @@ const missingNumber = (arr) => {
 
 
 }
+
+
+// BF 
+var missingNumber = function(arr) {
+    let n = arr.length;
+    arr.sort((a, b) => {
+        return a - b;
+    });
+    let element = n;
+
+    for (let i = 0; i < n; i++) {
+
+        if (i !== arr[i]) {
+            element = i;
+            break;
+        }
+    }
+
+    return element;
+};
