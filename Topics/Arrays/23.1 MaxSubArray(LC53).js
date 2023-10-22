@@ -36,3 +36,19 @@ var maxSubArray = function(arr) {
     }
     return maxSum;
 };
+
+
+// Kadanes Algo
+var maxSubArray = function(arr) {
+    let n = arr.length;
+    let [currentSum, maxSum] = [0, -Infinity];
+
+    for (let i = 0; i < n; i++) {
+        if (arr[i] <= currentSum + arr[i]) currentSum += arr[i];
+        else currentSum = arr[i];
+
+        if (maxSum < currentSum) maxSum = currentSum;
+    }
+
+    return maxSum;
+};
