@@ -31,3 +31,6 @@ var getIntersectionNode = function(headA, headB) {
    return head1;
     
 };
+
+
+// https://leetcode.com/problems/intersection-of-two-linked-lists/description/
