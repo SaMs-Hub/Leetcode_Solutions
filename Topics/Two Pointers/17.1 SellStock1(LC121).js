@@ -12,18 +12,20 @@ var maxProfit = function(arr) {
 };
 
 
-// Two pointers - O(n)
-var maxProfit = function(arr) {
-   let [left, right, maxProfitValue] = [0, 1, 0];
+// Two pointers - O(n) SLiding window
+const maxProfit = (arr) => {
+  let [maxProfit, left, right] = [0, 0, 1];
 
-    while (right <= arr.length) {
-        if (arr[left] < arr[right]) {
-            maxProfitValue = Math.max(maxProfitValue, arr[right] - arr[left]);
-        } else left = right;
+  while (right <= arr.length) {
+    if (arr[left] < arr[right]) {
+      maxProfit = Math.max(maxProfit, arr[right] - arr[left]);
+    } else left = right;
 
-        right++;
-    }
+    right += 1;
+  }
 
-    return maxProfitValue;
+  return maxProfit;
 };
 
+
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
