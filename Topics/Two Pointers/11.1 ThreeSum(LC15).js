@@ -20,8 +20,8 @@ const threeSum = (arr) => {
 
 
 // App2 - Using two pointers
-var threeSum = function(arr) {
-    let result = [];
+const threeSum = (arr) => {
+  let result = [];
     arr.sort((a, b) => a - b);
     
     for (let i = 0; i < arr.length; i++){
@@ -49,5 +49,4 @@ var threeSum = function(arr) {
     }
     
     return result;
-    
 };
