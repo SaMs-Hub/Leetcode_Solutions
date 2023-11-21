@@ -21,3 +21,6 @@ const merge = (intervals) => {
 
   return result;
 };
+
+
+https://leetcode.com/problems/merge-intervals/description/
