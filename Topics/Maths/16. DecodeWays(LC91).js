@@ -22,3 +22,5 @@ const numDecodings = (s) => {
   let n = digits.length;
   return getCount(digits, n);
 };
+
+https://leetcode.com/problems/decode-ways/description/
