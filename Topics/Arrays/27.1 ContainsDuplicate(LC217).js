@@ -23,24 +23,24 @@ var containsDuplicate = function(nums) {
 
 
 // App 3  Using two pointers  O(n)
-var containsDuplicate = function(nums) {
-    nums.sort((a, b) =>  a - b);
+const containsDuplicate = (arr) => {
+  let n = arr.length;
 
-    let i = 0;
-    let j = i + 1;
+  arr.sort((a, b) => a - b);
 
-    while (j < nums.length){
-        if (nums[i] === nums[j]){
-            return true;
-            
-        }else{
-            i++;
-            j++;
-        }
+  let i = 0;
+  let j = i + 1;
+
+  while (j < n) {
+    if (arr[i] === arr[j]) {
+      return true;
+    } else {
+      i += 1;
+      j += 1;
     }
+  }
 
-    return false;
-    
+  return false;
 };
 
 // App 4 Using Map
@@ -84,3 +84,4 @@ var containsDuplicate = function(arr) {
     
 };
 
+https://leetcode.com/problems/contains-duplicate/description/
