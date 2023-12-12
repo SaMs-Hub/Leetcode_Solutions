@@ -27,5 +27,25 @@ const maxProfit = (arr) => {
   return maxProfit;
 };
 
+// using for loop
+const maxProfit = (arr) => {
+  let n = arr.length;
+
+  let left = 0;
+  let maxValue = 0;
+
+
+  for (let right = 0; right < n; right++){
+    const currentValue = arr[right] - arr[left];
+    maxValue = Math.max(maxValue, currentValue );
+    if (arr[left] >  arr[right]) {
+        left = right;
+     
+    } 
+  }
+
+  return maxValue;
+};
+
 
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
