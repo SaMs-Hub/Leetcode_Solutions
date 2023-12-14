@@ -30,3 +30,5 @@ const isValid = (str) => {
 
   return stack.length === 0;
 }
+
+https://leetcode.com/problems/valid-parentheses/description/
