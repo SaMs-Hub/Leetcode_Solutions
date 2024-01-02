@@ -1,3 +1,4 @@
+// App 1 - Naive
 const removeNthFromEnd = (head, key) => {
     // find length of list
     let length = 0;
@@ -29,3 +30,35 @@ const removeNthFromEnd = (head, key) => {
     return head;
 
 }
+
+
+// App 2 - Two pointers
+
+const removeNthFromEnd = (head, key) => {
+    // make two pointers fast and slow
+
+    let slow = head;
+    let fast = head;
+
+    // have gap between fast and slow of 1
+    for (let i = 0; i < key; i++) {
+           fast = fast.next;
+    }
+
+    if (fast === null){
+        return head.next;
+    }
+
+    // keep doing this until fast is null
+    while (fast.next !== null) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+    // slow to slownextnext
+    slow.next = slow.next.next
+
+    return head;
+
+}
+
+// https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
