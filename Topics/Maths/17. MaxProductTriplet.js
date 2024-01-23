@@ -20,5 +20,24 @@ const arr = [8, 2, 8, 1, -4];
 console.log(maxProduct(arr));
 
 
+// Using math
+const maxProduct = (arr) => {
+  let maxValue = Number.MIN_VALUE;
+  let n = arr.length;
+
+  arr.sort((a, b) => {
+    return a - b;
+  });
+
+  const initialProduct = arr[0] * arr[1] * arr[n - 1];
+  const finalProduct = arr[n - 1] * arr[n - 2] * arr[n - 3];
+
+  maxValue = Math.max(initialProduct, finalProduct);
+
+  return maxValue;
+};
+
+
+
 
 
