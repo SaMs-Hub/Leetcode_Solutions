@@ -1,22 +1,24 @@
 // Selection Sort - O(n2)
-var sortArray = function(arr) {
-   
-  let minIndex;
-  for (let i = 0; i < arr.length; i++) {
-    minIndex = i;
+const selectionSort = (arr) => {
+  let n = arr.length;
 
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j] <  arr[minIndex]) {
+  for (let i = 0; i < n; i++) {
+    let minIndex = i;
+
+    for (let j = i + 1; j < n; j++) {
+      if (arr[j] < arr[minIndex]) {
         minIndex = j;
       }
     }
-    [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+
+    if (minIndex !== i) {
+      [arr[minIndex], arr[i]] = [arr[i], arr[minIndex]];
+    }
   }
 
   return arr;
-
-    
 };
+
 
 // Bubble Sort - O(n2)
 var sortArray = function(arr) {
