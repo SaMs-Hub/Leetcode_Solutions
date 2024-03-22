@@ -1,15 +1,20 @@
 // App 1 Brute force O(n**2)
-const twoSum = (arr, target) => {
-   
-    const n = arr.length;
-    for (let i = 0; i < n; i++){
-        for (let j = i + 1; j < n; j++){
-            if (arr[i] + arr[j] == target) return [i, j];
-        }
-    }
-    return -1;
-}
 
+ const twoSum = (arr, target) => {
+  const n = arr.length;
+
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      let currentSum = arr[i] + arr[j];
+
+      if (currentSum === target) {
+        return [i, j];
+      }
+    }
+  }
+
+  return -1;
+};
 
 
 
@@ -32,5 +37,23 @@ const twoSum = (arr, target) => {
 
   return -1;
 }
+
+// TWo p using objects
+ const twoSum = (arr, target) => { const n = arr.length;
+
+  const mySet = {};
+
+  for (let i = 0; i < n; i++) {
+    let targetNumber = target - arr[i];
+
+    if (targetNumber in mySet) {
+      return [i, mySet[targetNumber]];
+    } else {
+      mySet[arr[i]] = i;
+    }
+  }
+
+  return -1;
+};
 
 // https://leetcode.com/problems/two-sum/description/
