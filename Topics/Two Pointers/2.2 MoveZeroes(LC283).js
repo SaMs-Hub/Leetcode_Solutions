@@ -23,8 +23,6 @@ var moveZeroes = function(nums) {
 
 
 // BF
-
-
 const moveZeroes = (arr) => {
     const result = [];
     let count = 0;
@@ -41,6 +39,28 @@ const moveZeroes = (arr) => {
     }
     
     return result;
+}
+
+//BF for loop
+const arr = [0,1,0,3,12];
+
+const moveZeroes = (arr) => {
+  const temp = [];
+  let zeroCount = 0;
+  
+  arr.forEach((x) => {
+    if (x === 0){
+      zeroCount += 1;
+    }else{
+      temp.push(x);
+    }
+  })
+  
+  for (let i = 0; i < zeroCount; i++){
+    temp.push(0);
+  }
+  
+  return temp;
 }
 
 // https://leetcode.com/problems/move-zeroes/
