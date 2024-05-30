@@ -4,36 +4,36 @@ class Node {
     this.next = null;
   }
 }
-var root;
 
-// Function to insert node
-function insert(root, item) {
-  var temp = new Node();
+const insert = (root, item) => {
+  const temp = new Node();
   temp.data = item;
   temp.next = root;
   root = temp;
   return root;
-}
+};
 
-function display(root) {
-  let arr = [];
+const display = (root) => {
+  const temp = [];
+
   while (root != null) {
-    arr.push(root.data);
+    temp.push(root.data);
     root = root.next;
   }
 
-  console.log(arr);
-}
+  console.log(temp);
+};
 
-function arrayToList(arr, n) {
-  root = null;
-  for (var i = n - 1; i >= 0; i--) root = insert(root, arr[i]);
+const arrToLinkedList = (arr) => {
+  let root = null;
+  const n = arr.length;
+  for (let i = n - 1; i >= 0; i--) {
+    root = insert(root, arr[i]);
+  }
+
   return root;
-}
+};
 
-
-// Driver code
-var arr = [1, 2, 3, 4];
-var n = arr.length;
-var root = arrayToList(arr, n);
+const arr = [1, 2, 3, 4, 5];
+const root = arrToLinkedList(arr);
 display(root);
