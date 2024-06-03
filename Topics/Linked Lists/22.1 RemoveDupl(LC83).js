@@ -1,14 +1,16 @@
-var deleteDuplicates = function(head) {
-    let currentNode = head;
-    while (currentNode != null && currentNode.next != null){
-        while (currentNode.next != null && currentNode.val === currentNode.next.val){
-            currentNode.next = currentNode.next.next;
-        }
+const removeDuplicates = (head) => {
+  let currentNode = head;
 
-
-        currentNode = currentNode.next;
+  while (currentNode !== null && currentNode.next !== null) {
+    while (
+      currentNode.next !== null &&
+      currentNode.data === currentNode.next.data
+    ) {
+      currentNode.next = currentNode.next.next;
     }
 
-    return head;
-    
+    currentNode = currentNode.next;
+  }
+
+  return head;
 };
