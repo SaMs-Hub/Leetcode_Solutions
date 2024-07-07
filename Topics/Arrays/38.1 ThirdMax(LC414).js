@@ -20,23 +20,24 @@ const thirdMax = (arr) => {
   }
 };
 
-// O(n)
-var thirdMax = function(arr) {
-     // assigning with lowest possible value    
-   let [first, second, third] = Array(3).fill(-Infinity);
-   
-   for (let i = 0; i < arr.length; i++){
-       
-       const currentNumber = arr[i];
-       
-       // handling duplicates
-       if ([first, second, third].includes(currentNumber)) continue;
-       if (currentNumber > first){
-           [first, second, third] = [currentNumber, first, second];
-       }else if (currentNumber > second) [second, third] = [currentNumber, second];
-       else if (currentNumber > third) third = currentNumber;
-   }
-   
-   return third === -Infinity ? first : third;
-    
+// O(n)const thirdMax = (arr) => {
+  let [first, second, third] = Array(3).fill(-Infinity);
+
+  const filteredSet = new Set(arr);
+
+  for (let currentNum of filteredSet) {
+    if (currentNum > first) {
+      [first, second, third] = [currentNum, first, second];
+    } else if (currentNum > second) {
+      [second, third] = [currentNum, second];
+    } else if (currentNum > third) {
+      third = currentNum;
+    }
+  }
+
+  if (third === -Infinity) {
+    return first;
+  } else {
+    return third;
+  }
 };
