@@ -1,14 +1,24 @@
 // Using sort method - O(n log n)
-var thirdMax = function(arr) {
-     if (arr.length === 0) return arr;
-    const newArr = [...new Set(arr)];
-   newArr.sort((a, b) => (b - a));
-   
-   return newArr.length <=2 ? newArr[0] :  newArr[2]
-    
+const thirdMax = (arr) => {
+  let n = arr.length;
+  arr.sort((a, b) => {
+    return b - a;
+  });
+
+  const filteredArray = [];
+  for (let i = 0; i < n; i++) {
+    if (filteredArray.includes(arr[i]) === false) {
+      filteredArray.push(arr[i]);
+    }
+  }
+
+  const m = filteredArray.length;
+  if (m < 3) {
+    return filteredArray[0];
+  } else {
+    return filteredArray[2];
+  }
 };
-
-
 
 // O(n)
 var thirdMax = function(arr) {
