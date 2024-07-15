@@ -1,24 +1,26 @@
 // App 1  Two P
-var moveZeroes = function(nums) {
-    let i = 0;
-    let j = 1;
+const moveZeroes = (arr) => {
+   const n = arr.length;
 
-    while (j < nums.length){
-        if (nums[i] == 0 && nums[j] != 0){
-            [nums[i], nums[j]] = [nums[j], nums[i]];
-            i++;
-            j++;
-        }else if(nums[i] == 0 && nums[j] == 0){
-            j++;
-        }else{
-            i++;
-            j++;
-        }
+  let i = 0;
+  let j = i + 1;
+
+  while (j < n) {
+    if (arr[i] === 0 && arr[j] !== 0) {
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+      i++;
+      j++;
+    } else if (arr[i] === 0 && arr[j] === 0) {
+      j++;
+    } else {
+      i++;
+      j++;
     }
+  }
 
-    return nums;
-    
+  return arr;
 };
+
 
 
 
@@ -41,26 +43,24 @@ const moveZeroes = (arr) => {
     return result;
 }
 
-//BF for loop
-const arr = [0,1,0,3,12];
-
-const moveZeroes = (arr) => {
-  const temp = [];
+//BF for loopconst moveZeros = (arr) => {
   let zeroCount = 0;
-  
-  arr.forEach((x) => {
-    if (x === 0){
+  const n = arr.length;
+
+  const result = [];
+  for (let i = 0; i < n; i++) {
+    if (arr[i] === 0) {
       zeroCount += 1;
-    }else{
-      temp.push(x);
+    } else {
+      result.push(arr[i]);
     }
-  })
-  
-  for (let i = 0; i < zeroCount; i++){
-    temp.push(0);
   }
-  
-  return temp;
-}
+
+  for (let i = 0; i < zeroCount; i++) {
+    result.push(0);
+  }
+
+  return result;
+};
 
 // https://leetcode.com/problems/move-zeroes/
