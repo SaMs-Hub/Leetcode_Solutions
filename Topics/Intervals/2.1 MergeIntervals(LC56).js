@@ -1,26 +1,32 @@
 // App 1
-const merge = (intervals) => {
-  const result = [];
+const mergeIntervals = (arr) => {
+  const n = arr.length;
   let currentCount = 0;
-  let totalIntervals = intervals.length;
-  // sorting based on 1st value
-  intervals.sort((a, b) => a[0] - b[0]);
+  const result = [];
 
-  while (currentCount < totalIntervals - 1) {
-    if (intervals[currentCount][1] >= intervals[currentCount + 1][0]) {
-      intervals[currentCount + 1][0] = intervals[currentCount][0];
-      intervals[currentCount + 1][1] = Math.max(
-        intervals[currentCount + 1][1],
-        intervals[currentCount][1]
+  arr.sort((a, b) => {
+    return a[0] - b[0];
+  });
+
+  while (currentCount < n - 1) {
+    if (arr[currentCount][1] >= arr[currentCount + 1][0]) {
+      arr[currentCount + 1][0] = arr[currentCount][0];
+      arr[currentCount + 1][1] = Math.max(
+        arr[currentCount][1],
+        arr[currentCount + 1][1]
       );
-    } else result.push(intervals[currentCount]);
+    } else {
+      result.push(arr[currentCount]);
+    }
 
     currentCount += 1;
   }
-  result.push(intervals[currentCount]);
+
+  result.push(arr[currentCount]);
 
   return result;
 };
+
 
 
 https://leetcode.com/problems/merge-intervals/description/
