@@ -1,24 +1,22 @@
-/**
- * @param {string} s
- * @return {boolean}
- */
-const isValid = (str) => {
-     const stack = [];
-  const myMap = {
-    ")": "(",
+
+const validParenthesis = (str) => {
+  const stack = [];
+
+  const helperObj = {
     "}": "{",
     "]": "[",
+    ")": "(",
   };
 
   for (let x of str) {
-    const isPresent = x in myMap;
+    const isPresent = x in helperObj;
 
-    if (!isPresent) {
+    if (isPresent === false) {
       stack.push(x);
       continue;
     }
 
-    const isEqual = stack[stack.length - 1] === myMap[x];
+    const isEqual = stack[stack.length - 1] === helperObj[x];
 
     if (isEqual) {
       stack.pop();
@@ -29,7 +27,7 @@ const isValid = (str) => {
   }
 
   return stack.length === 0;
-}
+};
 
 
 // BF
