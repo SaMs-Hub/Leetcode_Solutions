@@ -14,12 +14,19 @@ var maxProfit = function(arr) {
 
 // Two pointers - O(n) SLiding window
 const maxProfit = (arr) => {
-  let [maxProfit, left, right] = [0, 0, 1];
+  const n = arr.length;
 
-  while (right <= arr.length) {
+  let maxProfit = 0;
+
+  let left = 0;
+  let right = 1;
+
+  while (right < n) {
     if (arr[left] < arr[right]) {
       maxProfit = Math.max(maxProfit, arr[right] - arr[left]);
-    } else left = right;
+    } else {
+      left = right;
+    }
 
     right += 1;
   }
