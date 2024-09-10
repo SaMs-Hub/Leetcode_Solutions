@@ -25,34 +25,47 @@ const threeSum = (arr) => {
 
 console.log(threeSum(arr));
 
-// App2 - Using two pointers
+// App2 - Using two pointers O(n 2)
 const threeSum = (arr) => {
-  let result = [];
-    arr.sort((a, b) => a - b);
-    
-    for (let i = 0; i < arr.length; i++){
-        let current = arr[i];
-        if (current > 0) break;
-        if (i > 0 && current === arr[i - 1]) continue;
-        
-        let j = i + 1;
-        let k = arr.length - 1;
-        
-        while (j < k){
-            let currentSum = current + arr[j] + arr[k];
-            
-            if (currentSum > 0) k--;
-            else if(currentSum < 0) j++;
-            else{
-                result.push([current, arr[j], arr[k]]);
-                j++;
-                k--;
+  const n = arr.length;
 
-              // to handle duplicate j values
-                while (arr[j] === arr[j - 1] && j < k) j++;
-            }
-        }
+  const result = [];
+
+  arr.sort((a, b) => {
+    return a - b;
+  });
+  for (let i = 0; i < n; i++) {
+    let current = arr[i];
+
+    if (current > 0) {
+      break;
     }
-    
-    return result;
+
+    // handle duplicates
+    if (i > 0 && arr[i - 1] === current) {
+      continue;
+    }
+
+    let j = i + 1;
+    let k = n - 1;
+    while (j < k) {
+      let currentSum = current + arr[j] + arr[k];
+
+      if (currentSum > 0) {
+        k -= 1;
+      } else if (currentSum < 0) {
+        j += 1;
+      } else {
+        result.push([current, arr[j], arr[k]]);
+        j += 1;
+        k -= 1;
+
+        while (j < k && arr[j] === arr[j - 1]) {
+          j += 1;
+        }
+      }
+    }
+  }
+
+  return result;
 };
