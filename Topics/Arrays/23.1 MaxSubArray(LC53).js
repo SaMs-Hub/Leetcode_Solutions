@@ -40,23 +40,6 @@ var maxSubArray = function(arr) {
 
 
 // Kadanes Algo
-const maxSubArray = (arr) => {
-  let n = arr.length;
-
-  let currentSum = 0;
-  let maxSum = -Infinity;
-
-  for (let i = 0; i < n; i++) {
-    if (arr[i] <= currentSum + arr[i]) {
-      currentSum += arr[i];
-    } else {
-      currentSum = arr[i];
-    }
-
-    maxSum = Math.max(maxSum, currentSum);
-  }
-
-  return maxSum;
-};
+https://leetcode.com/problems/maximum-subarray/submissions/1385176932/
 
 https://leetcode.com/problems/maximum-subarray/submissions/1117534362/
