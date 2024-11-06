@@ -35,7 +35,7 @@ const twoSum = (arr, target) => {
   return -1;
 }
 
-// TWo p using objects
+// TWo pointers using objects
 const twoSum = (arr, target) => {
   let n = arr.length;
   const resultObj = {};
