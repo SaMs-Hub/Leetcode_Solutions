@@ -22,16 +22,16 @@ console.log(secondMax(arr));
 
 // O(n)
 
-const secondMax = (arr) => {
+const secondLargest = (arr) => {
   let [first, second] = Array(2).fill(-Infinity);
 
   const filteredArray = [...new Set(arr)];
 
-  for (let currentNum of filteredArray) {
-    if (currentNum > first) {
-      [first, second] = [currentNum, first];
-    } else if (currentNum > second) {
-      second = currentNum;
+  for (let x of filteredArray) {
+    if (x > first) {
+      [first, second] = [x, first];
+    } else if (x > second) {
+      second = x;
     }
   }
 
