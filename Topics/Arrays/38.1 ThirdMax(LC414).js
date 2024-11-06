@@ -20,7 +20,8 @@ const thirdMax = (arr) => {
   }
 };
 
-// O(n)const thirdMax = (arr) => {
+// O(n)
+const thirdMax = (arr) => {
   let [first, second, third] = Array(3).fill(-Infinity);
 
   const filteredSet = new Set(arr);
