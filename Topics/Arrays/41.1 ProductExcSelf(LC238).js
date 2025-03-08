@@ -48,3 +48,23 @@ const productExceptSelf = (arr) => {
     
    return result;
 }
+
+// BF
+const product = (arr) => {
+    let result = 1;
+    arr.forEach((x) => {
+        result *= x;
+    })
+    
+    return result;
+}
+
+const productExceptSelf = (arr) => {
+    const result = [];
+    for (let i = 0; i < arr.length; i++){
+        const remainingArray = [...arr.slice(0, i), ...arr.slice(i + 1)];
+        result.push(product(remainingArray));
+    }
+    
+    return result;
+}
