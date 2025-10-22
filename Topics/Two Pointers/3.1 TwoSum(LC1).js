@@ -41,20 +41,21 @@ const twoSum = (arr, target) => {
 
 // TWo pointers using objects
 const twoSum = (arr, target) => {
-  let n = arr.length;
-  const resultObj = {};
+  const n = arr.length;
+  const numsObject = {};
 
   for (let i = 0; i < n; i++) {
-    const targetNumber = target - arr[i];
-    if (targetNumber in resultObj) {
-      return [i, resultObj[targetNumber]];
+    const currentNumber = arr[i];
+    const targetNumber = target - currentNumber;
+
+    if (targetNumber in numsObject) {
+      return [i, numsObject[targetNumber]];
     } else {
-      resultObj[arr[i]] = i;
+      numsObject[currentNumber] = i;
     }
   }
 
   return -1;
 };
-
 
 // https://leetcode.com/problems/two-sum/description/
