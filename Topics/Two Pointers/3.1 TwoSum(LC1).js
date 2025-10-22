@@ -1,11 +1,10 @@
 // App 1 Brute force O(n**2)
 const twoSum = (arr, target) => {
-  let n = arr.length;
+  const n = arr.length;
 
   for (let i = 0; i < n - 1; i++) {
-    for (let j = 1; j < n; j++) {
-      const currentSum = arr[i] + arr[j];
-      if (currentSum === target && i !== j) {
+    for (let j = i + 1; j < n; j++) {
+      if (arr[i] + arr[j] === target) {
         return [i, j];
       }
     }
@@ -13,6 +12,11 @@ const twoSum = (arr, target) => {
 
   return -1;
 };
+
+const arr = [2, 5, 7, 9];
+
+console.log(twoSum(arr, 9));
+
 
 
 // Two pointers O(n)
