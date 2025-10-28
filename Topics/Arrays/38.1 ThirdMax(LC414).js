@@ -1,20 +1,18 @@
 // Using sort method - O(n log n)
-const thirdMax = (arr) => {
-  let n = arr.length;
-  arr.sort((a, b) => {
-    return b - a;
+const thirdLargest = (arr) => {
+  arr = arr.sort((a, b) => {
+    return a - b;
   });
 
   const filteredArray = [];
-  for (let i = 0; i < n; i++) {
-    if (filteredArray.includes(arr[i]) === false) {
-      filteredArray.push(arr[i]);
+  arr.forEach((x) => {
+    if (filteredArray.includes(x) === false) {
+      filteredArray.push(x);
     }
-  }
+  });
 
-  const m = filteredArray.length;
-  if (m < 3) {
-    return filteredArray[0];
+  if (filteredArray.length < 3) {
+    return filteredArray[arr.length - 1];
   } else {
     return filteredArray[2];
   }
