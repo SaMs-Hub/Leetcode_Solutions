@@ -23,7 +23,9 @@ console.log(secondMax(arr));
 const secondLargest = (arr) => {
   let [first, second] = Array(2).fill(-Infinity);
 
-  arr.forEach((x) => {
+  const filteredArray = [...new Set(arr)];
+
+  filteredArray.forEach((x) => {
     if (x > first) {
       [first, second] = [x, first];
     } else if (x > second) {
