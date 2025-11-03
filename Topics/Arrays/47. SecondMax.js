@@ -20,19 +20,16 @@ console.log(secondMax(arr));
 
 
 // O(n)
-
 const secondLargest = (arr) => {
   let [first, second] = Array(2).fill(-Infinity);
 
-  const filteredArray = [...new Set(arr)];
-
-  for (let x of filteredArray) {
+  arr.forEach((x) => {
     if (x > first) {
       [first, second] = [x, first];
     } else if (x > second) {
-      second = x;
+      [first, second] = [first, x];
     }
-  }
+  });
 
   if (second === -Infinity) {
     return first;
@@ -40,4 +37,5 @@ const secondLargest = (arr) => {
     return second;
   }
 };
+
 
