@@ -1,8 +1,14 @@
 // App 1 Convert Into array and Srot TC - O(n * log n)
-var isAnagram = function(s, t) {
-    return s.split("").sort().join("") === t.split("").sort().join("");
-};
+const isAnagram = (a, b) => {
+  if (a.length !== b.length) {
+    return false;
+  }
 
+  const sortedA = a.split("").sort().join("");
+  const sortedB = b.split("").sort().join("");
+
+  return sortedA === sortedB;
+};
 
 // App 2 Using maps O(n)
 const isAnagram = (s, t) => {
