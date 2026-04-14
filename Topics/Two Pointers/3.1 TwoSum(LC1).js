@@ -1,10 +1,12 @@
 // App 1 Brute force O(n**2)
+
 const twoSum = (arr, target) => {
   const n = arr.length;
 
-  for (let i = 0; i < n - 1; i++) {
+  for (let i = 0; i < n; i++) {
     for (let j = i + 1; j < n; j++) {
-      if (arr[i] + arr[j] === target) {
+      const sum = arr[i] + arr[j];
+      if (sum === target) {
         return [i, j];
       }
     }
