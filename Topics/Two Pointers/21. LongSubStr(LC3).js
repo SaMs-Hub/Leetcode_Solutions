@@ -1,6 +1,30 @@
 // O(n)
 
 
+var lengthOfLongestSubstring = function (str) {
+  let maxLength = 0;
+  const n = str.length;
+  const result = [];
+  for (let i = 0; i < n; i++) {
+    const set = new Set();
+
+    for (let j = i; j < n; j++) {
+      if (set.has(str[j])) {
+        result.push(set);
+        break;
+      }
+
+      set.add(str[j]);
+
+      maxLength = Math.max(maxLength, j - i + 1);
+    }
+  }
+
+  console.log(result);
+  return maxLength;
+};
+
+
 var lengthOfLongestSubstring = function(str) {
      const length = str.length;
         const set = new Set();
