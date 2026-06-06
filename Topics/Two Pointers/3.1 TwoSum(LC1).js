@@ -22,6 +22,31 @@ console.log(twoSum(arr, 9));
 
 
 // Two pointers O(n)
+// sorted 
+const twoSum = (arr, target) => {
+  let result = [];
+  const n = arr.length;
+  let left = 0;
+  let right = n - 1;
+
+
+
+  while (left < right) {
+    const sum = arr[left] + arr[right];
+    if (sum === target) {
+      return [left, right];
+    }
+
+    if (sum < target) {
+      left += 1;
+    } else {
+      right -= 1;
+    }
+  }
+  return result;
+};
+
+
 // using hashmap - works with unsorted as well
 const twoSum = (arr, target) => {
   const n = arr.length;
