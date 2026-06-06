@@ -49,19 +49,21 @@ const twoSum = (arr, target) => {
 
 // using hashmap - works with unsorted as well
 const twoSum = (arr, target) => {
+  let result = -1;
   const n = arr.length;
-  const map = new Map();
+  const myMap = new Map();
 
   for (let i = 0; i < n; i++) {
-    const need = target - arr[i];
-    if (map.has(need)) {
-      return [i, map.get(need)];
+    const targetNumber = target - arr[i];
+    if (myMap.has(targetNumber)) {
+      return [i, myMap.get(targetNumber)];
     }
-    map.set(arr[i], i);
-  }
 
-  return -1;
+    myMap.set(arr[i], i);
+  }
+  return result;
 };
+
 // TWo pointers using objects
 const twoSum = (arr, target) => {
   const n = arr.length;
