@@ -34,9 +34,8 @@ const validParenthesis = (str) => {
 /**
  * @param {string} s
  * @return {boolean}
- */
-var isValid = function(str) {
- const n = str.length;
+ */const validParenthesis = (str) => {
+  const n = str.length;
   const myStack = [];
 
   const obj = {
@@ -44,11 +43,9 @@ var isValid = function(str) {
     "]": "[",
     ")": "(",
   };
-
-  for (let i = 0; i < n; i += 1) {
+  for (let i = 0; i < n; i++) {
     if (str[i] in obj) {
-      console.log(obj[str[i]]);
-      if (myStack[myStack.length - 1] === obj[str[i]]) {
+      if (obj[str[i]] === myStack[myStack.length - 1]) {
         myStack.pop();
       } else {
         return false;
@@ -59,7 +56,6 @@ var isValid = function(str) {
   }
 
   return myStack.length === 0;
-    
 };
 
 https://leetcode.com/problems/valid-parentheses/description/
