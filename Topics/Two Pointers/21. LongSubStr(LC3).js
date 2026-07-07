@@ -26,29 +26,29 @@ const longestSubString = (str) => {
 };
 
 
-var lengthOfLongestSubstring = function (str) {
-  let maxLength = 0;
+const longestSubString = (str) => {
   const n = str.length;
-  const result = [];
-  for (let i = 0; i < n; i++) {
-    const set = new Set();
+  const mySet = new Set();
+  let maxLength = -Infinity;
+  let string = "";
 
-    for (let j = i; j < n; j++) {
-      if (set.has(str[j])) {
-        result.push(set);
-        break;
-      }
+  let left = 0;
+  for (let right = 0; right < n; right++) {
+    while (mySet.has(str[right])) {
+      mySet.delete(str[left]);
+      left += 1;
+    }
 
-      set.add(str[j]);
+    mySet.add(str[right]);
 
-      maxLength = Math.max(maxLength, j - i + 1);
+    if (right - left + 1 > maxLength) {
+      maxLength = right - left + 1;
+      string = str.slice(left, right + 1);
     }
   }
 
-  console.log(result);
-  return maxLength;
+  return [maxLength, string];
 };
-
 
 var lengthOfLongestSubstring = function (str) {
   let maxLength = 0;
