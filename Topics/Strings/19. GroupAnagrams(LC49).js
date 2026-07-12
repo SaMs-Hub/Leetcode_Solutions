@@ -29,18 +29,24 @@ const groupAnagrams = (strings) => {
 console.log(groupAnagrams(str));
 
 
-const groupAnagrams = (string) => {
-  const map = new Map();
+const str = ["eat", "tea", "tan", "ate", "nat", "bat"];
 
-  for (let current of strings) {
-    const key = current.split("").sort().join("");
-    if (map.has(key) === false) {
-      map.set(key, []);
+const groupAnagrams = (strings) => {
+  const myMap = new Map();
+
+  for (let str of strings) {
+    const newStr = str.split("").sort().join("");
+
+    if (!myMap.has(newStr)) {
+      myMap.set(newStr, []);
     }
-    map.get(key).push(current);
+
+    myMap.get(newStr).push(str);
   }
 
-  return Array.from(map.values());
+  return [...myMap.values()];
 };
+
+console.log(groupAnagrams(str));
 
 console.log(groupAnagrams(strings));
