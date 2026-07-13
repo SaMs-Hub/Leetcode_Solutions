@@ -19,3 +19,30 @@ const subarraySum = (arr, target) => {
 
   return [result, longest];
 };
+
+
+
+const subarraySum = (arr, target) => {
+  let sum = 0;
+  let count = 0;
+
+  const myMap = new Map();
+
+  myMap.set(0, 1);
+
+  for (let x of arr) {
+    sum += x;
+
+    if (myMap.has(sum - target)) {
+      count += myMap.get(sum - target);
+    }
+
+    if (myMap.has(sum)) {
+      myMap.set(sum, myMap.get(sum) + 1);
+    } else {
+      myMap.set(sum, 1);
+    }
+  }
+
+  return count;
+};
