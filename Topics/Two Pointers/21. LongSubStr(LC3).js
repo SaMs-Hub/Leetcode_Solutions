@@ -49,23 +49,27 @@ const longestSubString = (str) => {
   return [maxLength, string];
 };
 
-var lengthOfLongestSubstring = function (str) {
-  let maxLength = 0;
-  const set = new Set();
-
+const lengthOfLongestSubstring = (str) => {
+  let longest = 0;
+  let longestString = "";
   let left = 0;
+  const mySet = new Set();
+  const n = str.length;
 
-  for (let right = 0; right < str.length; right += 1) {
-    while (set.has(str[right])) {
-      set.delete(str[left]);
+  for (let right = 0; right < n; right++) {
+    while (mySet.has(str[right])) {
+      mySet.delete(str[left]);
       left += 1;
-      
     }
-    set.add(str[right]);
 
-    maxLength = Math.max(maxLength, right - left + 1);
+    mySet.add(str[right]);
+
+    if (right - left + 1 > longest) {
+      longest = right - left + 1;
+      longestString = str.slice(left, right + 1);
+    }
   }
 
-  return maxLength;
+  return [longest, longestString];
 };
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/
