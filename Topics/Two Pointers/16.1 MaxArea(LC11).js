@@ -27,26 +27,37 @@ console.log(maxArea(arr));
 
 
 // App2 Two Pointers O(n ** 2)
+const arr = [1, 8, 6, 2, 5, 4, 8, 3, 7];
+
 const maxArea = (arr) => {
+  let max = -Infinity;
+  let result = [];
   const n = arr.length;
-  let maxArea = -Infinity;
-  let currentArea = -Infinity;
 
-  let i = 0;
-  let j = n - 1;
+  let left = 0;
+  let right = n - 1;
 
-  while (i < j) {
-    currentArea = (j - i) * Math.min(arr[i], arr[j]);
-    maxArea = Math.max(maxArea, currentArea);
+  while (left < right) {
+    const width = right - left;
+    const height = Math.min(arr[left], arr[right]);
 
-    if (arr[i] <= arr[j]) {
-      i += 1;
+    const area = width * height;
+
+    if (area > max) {
+      max = area;
+      result = arr.slice(left, right + 1);
+    }
+
+    if (arr[left] < arr[right]) {
+      left += 1;
     } else {
-      j -= 1;
+      right -= 1;
     }
   }
 
-  return maxArea;
+  return [max, result];
 };
+
+console.log(maxArea(arr));
 
 // https://leetcode.com/problems/container-with-most-water/
