@@ -1,30 +1,29 @@
 // O(n)
 
 
-const longestSubString = (str) => {
-  let maxLength = -Infinity;
-  let string = "";
+const lengthOfLongestSubstring = (str) => {
+  let longest = 0;
+  let longestString = "";
   const n = str.length;
 
   for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
-      const current = str.slice(i, j + 1);
-      console.log(current);
+    const mySet = new Set();
 
-      const mySet = new Set(current);
+    for (let j = i; j < n; j++) {
+      if (mySet.has(str[j])) {
+        break;
+      }
 
-      if (current.length === mySet.size) {
-        if (current.length > maxLength) {
-          maxLength = current.length;
-          string = current;
-        }
+      mySet.add(str[j]);
+      if (mySet.size > longest) {
+        longest = mySet.size;
+        longestString = [...mySet].join("");
       }
     }
   }
 
-  return [maxLength, string];
+  return [longestString, longest];
 };
-
 
 const longestSubString = (str) => {
   const n = str.length;
