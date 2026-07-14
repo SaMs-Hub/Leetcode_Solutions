@@ -29,44 +29,39 @@ const threeSum = (arr) => {
   return result;
 };
 
-// App2 - Using two pointers O(n 2)
-const threeSum = (arr) => {
-  const n = arr.length;
-
+// App2 - Using two pointers O(n 2)const threeSum = (arr) => {
   const result = [];
-
+  const n = arr.length;
   arr.sort((a, b) => {
     return a - b;
   });
+
   for (let i = 0; i < n; i++) {
-    let current = arr[i];
-
-    if (current > 0) {
-      break;
-    }
-
-    // handle duplicates
-    if (i > 0 && arr[i - 1] === current) {
+    if (i > 0 && arr[i] === arr[i - 1]) {
       continue;
     }
+    let left = i + 1;
+    let right = n - 1;
 
-    let j = i + 1;
-    let k = n - 1;
-    while (j < k) {
-      let currentSum = current + arr[j] + arr[k];
+    while (left < right) {
+      const sum = arr[i] + arr[left] + arr[right];
+      if (sum === 0) {
+        result.push([arr[i], arr[left], arr[right]]);
 
-      if (currentSum > 0) {
-        k -= 1;
-      } else if (currentSum < 0) {
-        j += 1;
-      } else {
-        result.push([current, arr[j], arr[k]]);
-        j += 1;
-        k -= 1;
+        left += 1;
+        right -= 1;
 
-        while (j < k && arr[j] === arr[j - 1]) {
-          j += 1;
+        while (left < right && arr[left] === arr[left - 1]) {
+          left += 1;
         }
+
+        while (left < right && arr[right] === arr[right + 1]) {
+          right -= 1;
+        }
+      } else if (sum < 0) {
+        left += 1;
+      } else {
+        right -= 1;
       }
     }
   }
