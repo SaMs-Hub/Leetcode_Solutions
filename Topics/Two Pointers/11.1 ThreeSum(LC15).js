@@ -4,26 +4,30 @@ const arr = [-1, 0, 1, 2, -1, -4];
 const threeSum = (arr) => {
   const result = [];
   const n = arr.length;
+  const mySet = new Set();
 
-  for (let i = 0; i < n; i++) {
-    for (let j = i + 1; j < n; j++) {
+  for (let i = 0; i < n - 2; i++) {
+    for (let j = i + 1; j < n - 1; j++) {
       for (let k = j + 1; k < n; k++) {
         const sum = arr[i] + arr[j] + arr[k];
         if (sum === 0) {
-          result.push([arr[i], arr[j], arr[k]]);
+          const triplet = [arr[i], arr[j], arr[k]].sort((a, b) => {
+            return a - b;
+          });
+
+          const key = triplet.join("");
+
+          if (!mySet.has(key)) {
+            mySet.add(key);
+            result.push(triplet);
+          }
         }
       }
     }
   }
 
-  if (result.length > 1) {
-    return result;
-  } else {
-    return -1;
-  }
+  return result;
 };
-
-console.log(threeSum(arr));
 
 // App2 - Using two pointers O(n 2)
 const threeSum = (arr) => {
