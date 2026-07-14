@@ -1,4 +1,35 @@
 // App 1
+const merge = (arr) => {
+  let changed = true;
+
+  while (changed) {
+    changed = false;
+
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = i + 1; j < arr.length; j++) {
+        const first = arr[i];
+        const second = arr[j];
+
+        if (first[0] <= second[1] && second[0] <= first[1]) {
+          first[0] = Math.min(first[0], second[0]);
+          first[1] = Math.max(first[1], second[1]);
+
+          arr.splice(j, 1);
+
+          changed = true;
+          break;
+        }
+      }
+      if (changed) {
+        break;
+      }
+    }
+  }
+
+  return arr;
+};
+
+
 const mergeIntervals = (arr) => {
   const n = arr.length;
   let currentCount = 0;
