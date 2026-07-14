@@ -70,17 +70,39 @@ var containsDuplicate = function(arr) {
 
 // App 6 Naive with sort O(n * long)
 
-var containsDuplicate = function(arr) {
-    arr.sort((a, b) => a - b);
-    let n = arr.length;
+const containsDuplicate = (arr) => {
+  let result = false;
+  const n = arr.length;
 
-    for (let i = 0; i < n; i++) {
-        if (arr[i] === arr[i + 1]) return true;
+  arr.sort((a, b) => {
+    return a - b;
+  });
 
+  for (let i = 0; i < n - 1; i++) {
+    if (arr[i] === arr[i + 1]) {
+      result = true;
+      break;
+    }
+  }
+
+  return result;
+};
+
+const containsDuplicate = (arr) => {
+  let result = false;
+
+  const myMap = new Map();
+
+  for (let x of arr) {
+    if (myMap.has(x)) {
+      result = true;
+      break;
     }
 
-    return false;
-    
+    myMap.set(x, 1);
+  }
+
+  return result;
 };
 
 https://leetcode.com/problems/contains-duplicate/description/
