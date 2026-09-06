@@ -1,3 +1,30 @@
+// loop through items
+// find next target number; if seen, return it
+// else set it, and keep checking
+// return -1
+
+const arr = [2, 7, 11, 15];
+const target = 9;
+
+const twoSum = (arr, target) => {
+  const myMap = new Map();
+  const n = arr.length;
+
+  for (let i = 0; i < n; i++) {
+    const targetNumber = target - arr[i];
+    if (myMap.has(targetNumber)) {
+      return [i, myMap.get(targetNumber)];
+    }
+
+    myMap.set(arr[i], i);
+  }
+
+  return -1;
+};
+
+console.log(twoSum(arr, 9));
+
+
 // App 1 Brute force O(n**2)
 
 const arr = [2, 7, 11, 15];
@@ -48,22 +75,6 @@ const twoSum = (arr, target) => {
 };
 
 
-// using hashmap - works with unsorted as well
-const twoSum = (arr, target) => {
-  let result = -1;
-  const n = arr.length;
-  const myMap = new Map();
-
-  for (let i = 0; i < n; i++) {
-    const targetNumber = target - arr[i];
-    if (myMap.has(targetNumber)) {
-      return [i, myMap.get(targetNumber)];
-    }
-
-    myMap.set(arr[i], i);
-  }
-  return result;
-};
 
 // TWo pointers using objects
 const twoSum = (arr, target) => {
