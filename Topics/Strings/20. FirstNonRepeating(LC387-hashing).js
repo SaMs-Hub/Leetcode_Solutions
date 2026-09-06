@@ -37,11 +37,12 @@ const firstUniqChar = (str) => {
     }
   }
 
-  for (let x of str) {
-    if (myMap.get(x) === 1) {
-      return str.split("").indexOf(x);
+  for (let i = 0; i < str.length; i++) {
+    if (myMap.get(str[i]) === 1) {
+      return i;
     }
   }
 
   return -1;
 };
+
