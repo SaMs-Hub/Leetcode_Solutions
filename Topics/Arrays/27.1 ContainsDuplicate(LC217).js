@@ -1,3 +1,52 @@
+// sort items
+// if current is equal to next after looping, return true
+// return false;
+
+
+const arr = [1, 2, 3, 11];
+
+const containsDuplicate = (arr) => {
+  let result = false;
+
+  arr.sort((a, b) => {
+    return a - b;
+  });
+
+  const n = arr.length;
+  for (let i = 0; i < n; i++) {
+    if (arr[i] === arr[i + 1]) {
+      result = true;
+      break;
+    }
+  }
+
+  return result;
+};
+
+console.log(containsDuplicate(arr));
+
+
+// loop through items
+// if current item was already seen, return true
+// otherwise remember current item
+// if loop finishes, return false
+
+const containsDuplicate = (arr) => {
+  const myMap = new Map();
+  const n = arr.length;
+
+  for (let i = 0; i < n; i++) {
+    if (myMap.has(arr[i])) {
+      return true;
+    }
+    myMap.set(arr[i], i);
+  }
+
+  return false;
+};
+
+
+
 // App 1 Using sets - O(n)
 var containsDuplicate = function(nums) {
     let numSet = new Set(nums);
