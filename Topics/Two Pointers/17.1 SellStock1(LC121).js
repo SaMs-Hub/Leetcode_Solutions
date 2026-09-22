@@ -1,75 +1,19 @@
-// Naive
-var maxProfit = function(arr) {
-  let [maxProfitValue, minValue] = [0, arr[0]];
+// Walk through the prices from left to right
+// Keep track of the cheapest price seen so far
+// At each price, pretend we sell the stock today
+// Profit = today's price - cheapest price
+// Keep the maximum profit found
+// Buy must always happen before sell because we only use previous prices
 
-    for (let x of arr) {
-        minValue = Math.min(minValue, x);
-        maxProfitValue = Math.max(maxProfitValue, x - minValue);
-
-    }
-
-    return maxProfitValue;
-};
-
-
-// Two pointers - O(n) SLiding window
 const maxProfit = (arr) => {
-  const n = arr.length;
-
+  let cheapestPrice = arr[0];
   let maxProfit = 0;
 
-  let left = 0;
-  let right = 1;
+  arr.slice(1).forEach((x) => {
+    cheapestPrice = Math.min(x, cheapestPrice);
 
-  while (right < n) {
-    if (arr[left] < arr[right]) {
-      maxProfit = Math.max(maxProfit, arr[right] - arr[left]);
-    } else {
-      left = right;
-    }
-
-    right += 1;
-  }
-
+    const profit = x - cheapestPrice;
+    maxProfit = Math.max(maxProfit, profit);
+  });
   return maxProfit;
 };
-
-// using for loop
-const maxProfit = (arr) => {
-  let n = arr.length;
-
-  let left = 0;
-  let maxValue = 0;
-
-
-  for (let right = 0; right < n; right++){
-    const currentValue = arr[right] - arr[left];
-    maxValue = Math.max(maxValue, currentValue );
-    if (arr[left] >  arr[right]) {
-        left = right;
-     
-    } 
-  }
-
-  return maxValue;
-};
-
-// BF
-
-const maxProfit = (arr) => {
-  const n = arr.length;
-
-  let maxProfit = 0;
-
-  for (let i = 0; i < n - 1; i++) {
-    for (let j = i + 1; j < n; j++) {
-      const current = arr[j] - arr[i];
-      maxProfit = Math.max(maxProfit, current);
-    }
-  }
-
-  return maxProfit;
-};
-
-
-https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
