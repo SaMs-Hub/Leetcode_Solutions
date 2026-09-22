@@ -1,70 +1,25 @@
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-
-// BF 
-
-const getProduct = (arr, position) => {
-  let current = 1;
-  for (let i = 0; i < arr.length; i++) {
-    if (position === i) {
-      continue;
-    } else {
-      current *= arr[i];
-    }
-  }
-
-  return parseInt(current);
-};
+// For every number, we need everything EXCEPT itself.
+// Split the answer into two sides: LEFT × RIGHT.
+// First go LEFT → RIGHT and store the LEFT product.
+// Then go RIGHT → LEFT and multiply the RIGHT product.
+// prefix = product of everything before the current index.
+// suffix = product of everything after the current index.
+// result[i] = prefix × suffix.
 
 const productExceptSelf = (arr) => {
-  const result = [];
-  const n = arr.length;
+  const result = Array.from({ length: arr.length });
 
-  for (let i = 0; i < n; i++) {
-    result.push(getProduct(arr, i));
+  let prefix = 1;
+  arr.forEach((x, index) => {
+    result[index] = prefix;
+    prefix *= x;
+  });
+
+  let suffix = 1;
+  for (let i = arr.length - 1; i >= 0; i--) {
+    result[i] *= suffix;
+    suffix *= arr[i];
   }
 
   return result;
 };
-
-
-// O(n)
-
-   const productExceptSelf = (arr) => {
-    let result = [];
-    let [prefix, postfix] = [1, 1];
-    
-    for (let i = 0; i < arr.length; i++){
-        result[i] = prefix;
-        prefix *= arr[i];
-    }
-    
-    for (let i = arr.length - 2; i >= 0; i--){
-        postfix *= arr[i + 1];
-        result[i] *= postfix;
-    }
-    
-   return result;
-}
-
-// BF
-const product = (arr) => {
-    let result = 1;
-    arr.forEach((x) => {
-        result *= x;
-    })
-    
-    return result;
-}
-
-const productExceptSelf = (arr) => {
-    const result = [];
-    for (let i = 0; i < arr.length; i++){
-        const remainingArray = [...arr.slice(0, i), ...arr.slice(i + 1)];
-        result.push(product(remainingArray));
-    }
-    
-    return result;
-}
