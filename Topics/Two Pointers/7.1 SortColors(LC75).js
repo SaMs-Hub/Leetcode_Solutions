@@ -1,29 +1,25 @@
 // App1 - O(n)
 // logic used: try put elements in [low, medium, high] format
 
-const swapChar = (arr, a, b) => {
-  [arr[a], arr[b]] = [arr[b], arr[a]];
-};
-
 const sortColors = (arr) => {
-  let n = arr.length;
+  let left = 0;
+  let current = 0;
+  let right = arr.length - 1;
 
-  let [low, medium, high] = [0, 0, n - 1];
+  while (current <= right) {
+    if (arr[current] === 0) {
+      [arr[current], arr[left]] = [arr[left], arr[current]];
 
-  while (medium <= high) {
-    if (arr[medium] === 0) {
-      swapChar(arr, medium, low);
-      low += 1;
-      medium += 1;
-    } else if (arr[medium] === 1) {
-      medium += 1;
-    } else {
-      swapChar(arr, medium, high);
-      high -= 1;
+      current += 1;
+      left += 1;
+    } else if (arr[current] === 1) {
+      current += 1;
+    } else if (arr[current] === 2) {
+      [arr[current], arr[right]] = [arr[right], arr[current]];
+      right -= 1;
     }
   }
 
   return arr;
 };
-
 // https://leetcode.com/problems/sort-colors/
