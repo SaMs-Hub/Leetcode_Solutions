@@ -25,21 +25,19 @@ const containsDuplicate = (arr) => {
 
 console.log(containsDuplicate(arr));
 
-
-// loop through items
-// if current item was already seen, return true
-// otherwise remember current item
-// if loop finishes, return false
+// Make a map to store numbers we have already seen.
+// Go through every number in the array.
+// If the number already exists in the map, return true.
+// Otherwise, add the number to the map.
+// If we finish the loop without finding a duplicate, return false.
 
 const containsDuplicate = (arr) => {
   const myMap = new Map();
-  const n = arr.length;
-
-  for (let i = 0; i < n; i++) {
-    if (myMap.has(arr[i])) {
+  for (let value of arr) {
+    if (myMap.has(value)) {
       return true;
     }
-    myMap.set(arr[i], i);
+    myMap.set(value, 1);
   }
 
   return false;
