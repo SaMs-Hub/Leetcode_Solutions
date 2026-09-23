@@ -1,49 +1,38 @@
-// App 1 Convert Into array and Srot TC - O(n * log n)
-const isAnagram = (str1, str2) => {
-  const n1 = str1.length;
-  const n2 = str2.length;
+// First, make sure both strings have the same length.
+// Make a map to store the frequency of each character.
+// Count every character in the first string.
+// Go through the second string and reduce each character's count.
+// If a character is missing, return false.
+// Delete a character when its count reaches zero.
+// If the map is empty at the end, both strings are anagrams.
 
-  if (n1 !== n2) {
-    return false;
-  }
 
-  const newArr1 = str1.split("").sort().join("");
-  const newArr2 = str2.split("").sort().join("");
-
-  return newArr1 === newArr2;
-};
-
-// App 2 Using maps O(n)const isAnagram = (a, b) => {const isAnagram = (str1, str2) => {
-  const n1 = str1.length;
-  const n2 = str2.length;
-
-  if (n1 !== n2) {
+const isAnagram = (str, t) => {
+  if (str.length !== t.length) {
     return false;
   }
 
   const myMap = new Map();
 
-  for (let x of str1) {
+  str.split("").forEach((x) => {
     if (myMap.has(x)) {
       myMap.set(x, myMap.get(x) + 1);
     } else {
       myMap.set(x, 1);
     }
-  }
+  });
 
-  for (let x of str2) {
+  t.split("").forEach((x) => {
     if (!myMap.has(x)) {
       return false;
     } else {
       myMap.set(x, myMap.get(x) - 1);
-    }
 
-    if (myMap.get(x) === 0) {
-      myMap.delete(x);
+      if (myMap.get(x) === 0) {
+        myMap.delete(x);
+      }
     }
-  }
+  });
 
   return myMap.size === 0;
 };
-
-/
