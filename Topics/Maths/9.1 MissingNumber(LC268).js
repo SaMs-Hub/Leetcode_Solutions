@@ -1,34 +1,23 @@
-// Using math operations - O(n)
+// Start with result = 0.
+// XOR every number present in the array.
+// Create indexes from 0 to n.
+// XOR every expected number with result.
+// Duplicate numbers cancel each other.
+// The missing number is left in result.
+
 const missingNumber = (arr) => {
-    let n = arr.length;
-    const expectedSum = (n * (n + 1)) / 2;
+  let result = 0;
 
-    const currentSum = arr.reduce((a, b) => {
-        return a + b;
-    })
+  arr.forEach((value) => {
+    result = result ^ value;
+    console.log(result);
+  });
 
-    let result = expectedSum - currentSum;
-    return result;
+  Array.from({ length: arr.length + 1 }).forEach((_, index) => {
+    result = result ^ index;
+  });
 
-
-}
-
-
-// BF 
-var missingNumber = function(arr) {
-    let n = arr.length;
-    arr.sort((a, b) => {
-        return a - b;
-    });
-    let element = n;
-
-    for (let i = 0; i < n; i++) {
-
-        if (i !== arr[i]) {
-            element = i;
-            break;
-        }
-    }
-
-    return element;
+  return result;
 };
+
+console.log(missingNumber([3, 0, 1]));
