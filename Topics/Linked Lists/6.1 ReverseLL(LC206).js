@@ -1,16 +1,24 @@
-// Using two pointers
+// Start with previous as null and current as the head.
+// Save the next node before changing the current node.
+// Point the current node back to previous.
+// Move previous to current.
+// Move current to the saved next node.
+// Repeat until current becomes null.
+// Previous is now the new head.
 
-var reverseList = function(head) {
-    let [currentNode, prevNode, nextNode] = [head, null, null];
+const reverseList = (head) => {
+  let previous = null;
+  let current = head;
 
-    while (currentNode) {
-        nextNode = currentNode.next;
+  while (current !== null) {
+    let next = current.next;
 
-        currentNode.next = prevNode;
-        prevNode = currentNode;
-        currentNode = nextNode;
-    }
+    current.next = previous;
 
-    return prevNode;
+    previous = current;
 
-}
+    current = next;
+  }
+
+  return previous;
+};
