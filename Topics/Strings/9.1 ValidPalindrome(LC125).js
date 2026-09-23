@@ -1,39 +1,33 @@
-// App 1 Naive
-
-const isAlphaNumeric = (char) => {
-  return char.match(/^[A-Za-z0-9]+$/) !== null;
-};
-
-const isPalindrome = (str) => {
-  let string = "";
-
-  for (let x of str) {
-    if (isAlphaNumeric(x)) string += x;
-  }
-
-  // not checking with original since it got special characters
-  const isValid =
-    string.toLowerCase() == string.split("").reverse().join("").toLowerCase();
-  return isValid;
-};
-
-// Two pointers - O(n)
-
-const isAlphanumeric = (str) => {
-  return str.match(/^[a-zA-Z0-9]+$/) !== null;
-};
+// Start two pointers at the beginning and end of the string.
+// Make a helper function to check if a character is alphanumeric.
+// Skip non-alphanumeric characters from the left.
+// Skip non-alphanumeric characters from the right.
+// Compare both characters after converting them to lowercase.
+// If they don't match, return false.
+// If they match, move both pointers inward.
+// If all characters match, return true.
 
 const isPalindrome = (str) => {
-  let [left, right] = [0, str.length - 1];
+  let left = 0;
+  let right = str.length - 1;
 
   while (left < right) {
-    while (!isAlphanumeric(str[left]) && left < right) left++;
-    while (!isAlphanumeric(str[right]) && left < right) right--;
+    if (!isLetter(str[left])) {
+      left += 1;
+      continue;
+    }
 
-    if (str[left].toLowerCase() !== str[right].toLowerCase()) return false;
+    if (!isLetter(str[right])) {
+      right -= 1;
+      continue;
+    }
 
-    left++;
-    right--;
+    if (str[left].toLowerCase() !== str[right].toLowerCase()) {
+      return false;
+    }
+
+    left += 1;
+    right -= 1;
   }
 
   return true;
