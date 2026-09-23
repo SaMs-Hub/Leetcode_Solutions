@@ -1,5 +1,10 @@
-// App1 - O(n)
-// logic used: try put elements in [low, medium, high] format
+// Keep 0s on the left, 1s in the middle, and 2s on the right.
+// current points to the number we haven't processed yet.
+// If current is 0, swap it left and move current.
+// If current is 1, leave it and move current.
+// If current is 2, swap it right and move right.
+// After moving a 2, keep current because the new value is unprocessed.
+// Stop when current passes right.
 
 const sortColors = (arr) => {
   let left = 0;
