@@ -1,21 +1,26 @@
-// App 1  Two P
+// Use current to scan every element.
+// Use nonZero to track where the next non-zero belongs.
+// When current finds a non-zero, copy it to nonZero.
+// Move nonZero forward after placing the non-zero.
+// After the scan, fill all remaining positions with 0.
+// The non-zero elements keep their original order
+
 const moveZeroes = (arr) => {
-   const n = arr.length;
+  let nonZero = 0;
+  let current = 0;
 
-  let i = 0;
-  let j = i + 1;
-
-  while (j < n) {
-    if (arr[i] === 0 && arr[j] !== 0) {
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-      i++;
-      j++;
-    } else if (arr[i] === 0 && arr[j] === 0) {
-      j++;
-    } else {
-      i++;
-      j++;
+  while (current < arr.length) {
+    if (arr[current] !== 0) {
+      arr[nonZero] = arr[current];
+      nonZero += 1;
     }
+    current += 1;
+  }
+
+  while (nonZero < arr.length) {
+    arr[nonZero] = 0;
+
+    nonZero += 1;
   }
 
   return arr;
