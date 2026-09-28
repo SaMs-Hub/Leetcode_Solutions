@@ -1,7 +1,10 @@
-// loop through items
-// find next target number; if seen, return it
-// else set it, and keep checking
-// return -1
+// Create a map to store each number and its index.
+// Go through the array one element at a time.
+// Calculate the number needed to reach the target.
+// Check if the needed number already exists in the map.
+// If it exists, return the current index and the stored index.
+// Otherwise, store the current number with its index.
+// If no pair is found, return -1.
 
 const arr = [2, 7, 11, 15];
 const target = 9;
