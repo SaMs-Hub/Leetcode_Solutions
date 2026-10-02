@@ -1,15 +1,17 @@
-var merge  = (arr) => {
+const merge = (arr) => {
+  const result = [];
+
   arr.sort((a, b) => {
     return a[0] - b[0];
   });
 
-  const result = [];
-  arr.forEach((x) => {
-    const [start, end] = x;
+  arr.forEach((value) => {
+    const [start, end] = value;
     const last = result[result.length - 1];
 
+    console.log(result, "res", value);
     if (!last || start > last[1]) {
-      result.push([start, end]);
+      result.push(value);
     } else {
       last[1] = Math.max(last[1], end);
     }
@@ -17,7 +19,6 @@ var merge  = (arr) => {
 
   return result;
 };
-
 
 
 
