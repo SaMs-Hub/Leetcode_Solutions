@@ -1,22 +1,22 @@
 
-const validParenthesis = (str) => {
-  const stack = [];
-
-  const helperObj = {
+const isValid = (str) => {
+  const helper = {
     "}": "{",
     "]": "[",
     ")": "(",
   };
 
-  for (let x of str) {
-    const isPresent = x in helperObj;
+  const stack = [];
 
-    if (isPresent === false) {
-      stack.push(x);
+  for (let key of str) {
+    const isPresent = key in helper;
+
+    if (!isPresent) {
+      stack.push(key);
       continue;
     }
 
-    const isEqual = stack[stack.length - 1] === helperObj[x];
+    const isEqual = stack[stack.length - 1] === helper[key];
 
     if (isEqual) {
       stack.pop();
