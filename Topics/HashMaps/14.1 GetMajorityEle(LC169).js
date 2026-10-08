@@ -27,25 +27,23 @@ const majorityElement = (arr) => {
 };
 
 
+const majorityElement = (arr) => {
+  const n = Math.ceil(arr.length / 2);
 
-const getMajorityElement = (arr) => {
-    let n = arr.length;
-    const occurences = new Map();
+  const myMap = new Map();
 
-    let i = 0;
-    while (i < n) {
-        let currentNumber = arr[i];
-        if (occurences.has(currentNumber)) {
-            let occurence = occurences.get(currentNumber)
-            occurences.set(currentNumber, occurence + 1);
-        } else occurences.set(currentNumber, 1);
+  let result = arr[0];
+  arr.forEach((x) => {
+    if (myMap.has(x)) {
+      myMap.set(x, myMap.get(x) + 1);
 
-        i++;
+      if (myMap.get(x) >= n) {
+        result = x;
+      }
+    } else {
+      myMap.set(x, 1);
     }
+  });
 
-
-    for (let [key, value] of occurences) {
-        if (value >= n / 2) return key;
-    }
-
-}
+  return result;
+};
