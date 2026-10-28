@@ -29,34 +29,38 @@ const threeSum = (arr) => {
   return result;
 };
 
-// App2 - Using two pointers O(n 2)const threeSum = (arr) => {
-  const result = [];
-  const n = arr.length;
+// App2 - Using two pointers O(n 2)
+
+const threeSum = (arr) => {
   arr.sort((a, b) => {
     return a - b;
   });
+  const n = arr.length;
+  const result = [];
 
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < n - 2; i++) {
     if (i > 0 && arr[i] === arr[i - 1]) {
       continue;
     }
+    const first = arr[i];
+
     let left = i + 1;
     let right = n - 1;
 
     while (left < right) {
-      const sum = arr[i] + arr[left] + arr[right];
-      if (sum === 0) {
-        result.push([arr[i], arr[left], arr[right]]);
+      const sum = first + arr[left] + arr[right];
 
+      if (sum === 0) {
+        result.push([first, arr[left], arr[right]]);
         left += 1;
         right -= 1;
 
         while (left < right && arr[left] === arr[left - 1]) {
-          left += 1;
+          left++;
         }
 
         while (left < right && arr[right] === arr[right + 1]) {
-          right -= 1;
+          right--;
         }
       } else if (sum < 0) {
         left += 1;
