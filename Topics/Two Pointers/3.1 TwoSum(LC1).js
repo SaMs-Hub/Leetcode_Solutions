@@ -14,14 +14,14 @@ const twoSum = (arr, target) => {
   const n = arr.length;
 
   for (let i = 0; i < n; i++) {
-    const targetNumber = target - arr[i];
+    const currentNumber = arr[i];
+    const targetNumber = target - currentNumber;
     if (myMap.has(targetNumber)) {
       return [i, myMap.get(targetNumber)];
     }
 
-    myMap.set(arr[i], i);
+    myMap.set(currentNumber, i);
   }
-
   return -1;
 };
 
