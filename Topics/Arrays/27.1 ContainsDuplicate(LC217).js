@@ -32,124 +32,18 @@ console.log(containsDuplicate(arr));
 // If we finish the loop without finding a duplicate, return false.
 
 const containsDuplicate = (arr) => {
-  const myMap = new Map();
-  for (let value of arr) {
-    if (myMap.has(value)) {
+  const mySet = new Set();
+
+  for (let i = 0; i < arr.length; i++) {
+    if (mySet.has(arr[i])) {
       return true;
     }
-    myMap.set(value, 1);
+    mySet.add(arr[i]);
   }
 
   return false;
 };
 
 
-
-// App 1 Using sets - O(n)
-var containsDuplicate = function(nums) {
-    let numSet = new Set(nums);
-    return numSet.size != nums.length;
-    
-};
-
-// App2 Using sets with break  O(n)
-var containsDuplicate = function(nums) {
-    let numSet = new Set();
-
-    for (let x of nums){
-        if (numSet.has(x)) return true;
-        numSet.add(x);
-    }
-
-    return false;
-   
-
-    
-};
-
-
-// App 3  Using two pointers  O(n)
-const containsDuplicate = (arr) => {
-  let n = arr.length;
-
-  arr.sort((a, b) => a - b);
-
-  let i = 0;
-  let j = i + 1;
-
-  while (j < n) {
-    if (arr[i] === arr[j]) {
-      return true;
-    } else {
-      i += 1;
-      j += 1;
-    }
-  }
-
-  return false;
-};
-
-// App 4 Using Map
-var containsDuplicate = function(nums) {
-   const map = new Map();
-
-   for (let x of nums){
-       if (map.has(x)) return true;
-       map.set(x, true);
-   }
-
-   return false;
-    
-};
-
-// App 5 Naive O(n^2)
-
-var containsDuplicate = function(arr) {
-     let n = arr.length;
-
-    for (let i = 0; i < n; i++) {
-        for (let j = i + 1; j < n; j++) {
-            if (arr[i] === arr[j]) return true;
-        }
-    }
-    return false;
-};
-
-// App 6 Naive with sort O(n * long)
-
-const containsDuplicate = (arr) => {
-  let result = false;
-  const n = arr.length;
-
-  arr.sort((a, b) => {
-    return a - b;
-  });
-
-  for (let i = 0; i < n - 1; i++) {
-    if (arr[i] === arr[i + 1]) {
-      result = true;
-      break;
-    }
-  }
-
-  return result;
-};
-
-const containsDuplicate = (arr) => {
-  let result = false;
-
-  const myMap = new Map();
-
-  for (let x of arr) {
-    if (myMap.has(x)) {
-      result = true;
-      break;
-    }
-
-    myMap.set(x, 1);
-  }
-
-  return result;
-};
 
 https://leetcode.com/problems/contains-duplicate/description/
