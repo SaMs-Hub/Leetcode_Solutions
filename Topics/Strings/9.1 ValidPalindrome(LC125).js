@@ -6,22 +6,25 @@
 // If they don't match, return false.
 // If they match, move both pointers inward.
 // If all characters match, return true.
+const isLetter = (str) => {
+  return /[a-zA-Z0-9]/.test(str);
+};
 
 const isPalindrome = (str) => {
+  const n = str.length;
+
   let left = 0;
-  let right = str.length - 1;
+  let right = n - 1;
 
   while (left < right) {
     if (!isLetter(str[left])) {
       left += 1;
       continue;
     }
-
     if (!isLetter(str[right])) {
       right -= 1;
       continue;
     }
-
     if (str[left].toLowerCase() !== str[right].toLowerCase()) {
       return false;
     }
@@ -29,6 +32,5 @@ const isPalindrome = (str) => {
     left += 1;
     right -= 1;
   }
-
   return true;
 };
